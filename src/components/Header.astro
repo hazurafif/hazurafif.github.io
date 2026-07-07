@@ -8,19 +8,19 @@ const links = [
 ];
 ---
 
-<header class="header glass">
-  <nav class="container nav">
+<header class="header">
+  <nav class="nav-pill glass">
     <a href="/" class="logo">Hanif</a>
+    <ul class="nav-links" id="nav-links">
+      {links.slice(1).map((link) => (
+        <li><a href={link.href} class="nav-link">{link.label}</a></li>
+      ))}
+    </ul>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
       <span class="hamburger-line"></span>
     </button>
-    <ul class="nav-links" id="nav-links">
-      {links.map((link) => (
-        <li><a href={link.href} class="nav-link" onclick="document.getElementById('nav-links').classList.remove('open'); document.getElementById('hamburger').classList.remove('active')">{link.label}</a></li>
-      ))}
-    </ul>
   </nav>
 </header>
 
@@ -34,55 +34,81 @@ const links = [
 <style>
   .header {
     position: fixed;
-    top: 0;
+    top: var(--space-lg);
     left: 0;
     width: 100%;
-    padding: var(--space-sm) 0;
+    display: flex;
+    justify-content: center;
     z-index: 100;
-    border-bottom: 1px solid var(--hairline);
+    pointer-events: none;
   }
 
-  .nav {
+  .nav-pill {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: var(--space-xl);
+    padding: 0.625rem 1.5rem;
+    border-radius: 9999px;
+    pointer-events: auto;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   }
 
   .logo {
-    font-family: var(--font-display);
-    font-size: 17px;
+    font-family: var(--font-heading);
+    font-size: 15px;
     font-weight: 600;
     letter-spacing: -0.374px;
-    color: var(--ink);
+    color: var(--foreground);
     text-decoration: none;
+    padding-right: var(--space-sm);
+    border-right: 1px solid var(--hairline);
   }
 
   .logo:hover {
     color: var(--primary);
   }
 
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: var(--space-lg);
+    align-items: center;
+  }
+
+  .nav-link {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-link:hover {
+    color: var(--foreground);
+  }
+
   .hamburger {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    gap: 4px;
     background: none;
     border: none;
     cursor: pointer;
-    padding: var(--space-xxs);
+    padding: 2px;
     z-index: 110;
   }
 
   .hamburger-line {
     display: block;
-    width: 22px;
+    width: 18px;
     height: 2px;
-    background: var(--ink);
+    background: var(--foreground);
     border-radius: 2px;
     transition: transform 0.3s, opacity 0.3s;
   }
 
   .hamburger.active .hamburger-line:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
+    transform: translateY(6px) rotate(45deg);
   }
 
   .hamburger.active .hamburger-line:nth-child(2) {
@@ -90,30 +116,22 @@ const links = [
   }
 
   .hamburger.active .hamburger-line:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: var(--space-xl);
-  }
-
-  .nav-link {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.12px;
-    color: var(--ink-muted-48);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-link:hover {
-    color: var(--ink);
+    transform: translateY(-6px) rotate(-45deg);
   }
 
   @media (max-width: 768px) {
+    .header {
+      top: var(--space-md);
+      padding: 0 var(--space-md);
+    }
+
+    .nav-pill {
+      width: 100%;
+      justify-content: space-between;
+      border-radius: 16px;
+      padding: 0.75rem 1.25rem;
+    }
+
     .hamburger {
       display: flex;
     }
@@ -125,7 +143,7 @@ const links = [
       left: 0;
       width: 100%;
       height: 100vh;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(40px);
       -webkit-backdrop-filter: blur(40px);
       flex-direction: column;
@@ -141,7 +159,7 @@ const links = [
 
     .nav-link {
       font-size: 1.25rem;
-      color: var(--ink);
+      color: var(--foreground);
     }
 
     .nav-link:hover {
