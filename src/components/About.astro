@@ -2,17 +2,17 @@
 
 ---
 
-<section id="about" class="section">
-  <div class="container">
-    <div class="section-header">
+<section id="about" class="py-12 md:py-16">
+  <div class="max-w-[1060px] mx-auto px-6 md:px-8">
+    <div class="mb-8">
       <p class="section-number">About</p>
       <h2>A foundation in hardware-software integration, applied to AI.</h2>
     </div>
-    <div class="about-grid">
-      <div class="about-text">
+    <div class="grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-8 items-start">
+      <div class="text-ink-muted leading-relaxed space-y-4">
         <p>
-          I graduated with a degree in <strong>Computer Engineering</strong> from the
-          <strong>University of Indonesia</strong> (Class of 2018). Blending a strong
+          I graduated with a degree in <strong class="font-semibold text-ink">Computer Engineering</strong> from the
+          <strong class="font-semibold text-ink">University of Indonesia</strong> (Class of 2018). Blending a strong
           foundation in hardware-software integration with modern software engineering,
           I specialize in bridging the gap between core backend systems and cutting-edge
           Artificial Intelligence.
@@ -22,50 +22,18 @@
           tools, and architecting end-to-end systems for production AI workloads.
         </p>
       </div>
-      <div class="about-cards">
-        <div class="glass rounded-xl p-6">
-          <p class="text-[11px] font-semibold tracking-widest uppercase text-[var(--ink-muted-light)] mb-2">Education</p>
-          <p class="font-semibold text-[15px] mb-0.5 text-[var(--ink)]">B.Eng Computer Engineering</p>
-          <p class="text-[13px] text-[var(--ink-muted)]">Universitas Indonesia, 2018</p>
+      <div class="flex flex-col gap-4">
+        <div class="glass rounded-[14px] p-6">
+          <p class="text-[11px] font-semibold tracking-widest uppercase text-ink-muted-light mb-2">Education</p>
+          <p class="font-semibold text-[15px] text-ink mb-0.5">B.Eng Computer Engineering</p>
+          <p class="text-[13px] text-ink-muted">Universitas Indonesia, 2018</p>
         </div>
-        <div class="glass rounded-xl p-6">
-          <p class="text-[11px] font-semibold tracking-widest uppercase text-[var(--ink-muted-light)] mb-2">Focus</p>
-          <p class="font-semibold text-[15px] mb-0.5 text-[var(--ink)]">AI Agents & Infrastructure</p>
-          <p class="text-[13px] text-[var(--ink-muted)]">Backend systems + AI integration</p>
+        <div class="glass rounded-[14px] p-6">
+          <p class="text-[11px] font-semibold tracking-widest uppercase text-ink-muted-light mb-2">Focus</p>
+          <p class="font-semibold text-[15px] text-ink mb-0.5">AI Agents & Infrastructure</p>
+          <p class="text-[13px] text-ink-muted">Backend systems + AI integration</p>
         </div>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .about-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: var(--space-xl);
-    align-items: start;
-  }
-
-  @media (max-width: 768px) {
-    .about-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  .about-text p {
-    color: var(--ink-muted);
-    margin-bottom: var(--space-md);
-    line-height: 1.65;
-  }
-
-  .about-text strong {
-    font-weight: 600;
-    color: var(--ink);
-  }
-
-  .about-cards {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-  }
-</style>

@@ -3,42 +3,9 @@
 const year = new Date().getFullYear();
 ---
 
-<footer class="footer">
-  <div class="container footer-inner">
-    <p class="footer-copy">&copy; {year} Hanif Zufar Rafif</p>
-    <p class="footer-built">Built with Astro &middot; Hosted on GitHub Pages</p>
+<footer class="py-8 border-t border-hairline mt-4">
+  <div class="max-w-[1060px] mx-auto px-6 md:px-8 flex flex-wrap justify-between items-center gap-4">
+    <p class="text-[13px] text-ink-muted">&copy; {year} Hanif Zufar Rafif</p>
+    <p class="text-xs text-ink-muted-light">Built with Astro &middot; Hosted on GitHub Pages</p>
   </div>
 </footer>
-
-<style>
-  .footer {
-    padding: var(--space-xl) 0;
-    border-top: 1px solid var(--hairline);
-    margin-top: var(--space-lg);
-  }
-
-  .footer-inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-  }
-
-  .footer-copy {
-    font-size: 13px;
-    color: var(--ink-muted);
-  }
-
-  .footer-built {
-    font-size: 12px;
-    color: var(--ink-muted-light);
-  }
-
-  @media (max-width: 480px) {
-    .footer-inner {
-      flex-direction: column;
-      text-align: center;
-    }
-  }
-</style>

@@ -19,29 +19,33 @@ const { Content } = await render(project);
 <BaseLayout title={`${project.data.title} — Hanif Zufar Rafif`}>
   <Header />
   <main>
-    <article class="project-page">
-      <div class="container">
-        <a href="/#projects" class="back-link">&larr; Back</a>
-        <div class="glass rounded-xl p-8 max-w-[700px]">
+    <article class="pt-24 pb-16">
+      <div class="max-w-[1060px] mx-auto px-6 md:px-8">
+        <a href="/#projects" class="inline-block text-sm text-ink-muted no-underline mb-6 hover:text-ink">&larr; Back</a>
+        <div class="glass rounded-[14px] p-8 max-w-[700px]">
           <header class="mb-8">
             <h1 class="mb-4">{project.data.title}</h1>
-            <div class="text-[13px] text-[var(--ink-muted)] mb-4">
+            <div class="text-[13px] text-ink-muted mb-4">
               <time datetime={project.data.pubDate.toISOString()}>
                 {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
               </time>
             </div>
             {project.data.tags && (
               <div class="flex flex-wrap gap-1.5">
-                {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+                {project.data.tags.map((tag) => <span class="text-[11px] font-medium text-ink-muted bg-canvas-soft px-2.5 py-1 rounded-full">{tag}</span>)}
               </div>
             )}
           </header>
-          <div class="project-content">
+          <div class="text-ink-muted text-sm leading-relaxed space-y-4 [&_h2]:text-ink [&_h2]:text-xl [&_h2]:mt-8 [&_h2]:mb-4 [&_ul]:pl-6 [&_li]:mb-2">
             <Content />
           </div>
-          <div class="flex gap-3 mt-8 pt-6 border-t border-[var(--divider-soft)]">
-            {project.data.liveUrl && <a href={project.data.liveUrl} class="btn-link-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>}
-            {project.data.repoUrl && <a href={project.data.repoUrl} class="btn-link-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>}
+          <div class="flex gap-3 mt-8 pt-6 border-t border-divider">
+            {project.data.liveUrl && (
+              <a href={project.data.liveUrl} class="inline-flex items-center justify-center text-sm font-medium px-5 py-2.5 rounded-full no-underline bg-primary text-white border border-primary hover:bg-primary-hover hover:text-white transition-all" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>
+            )}
+            {project.data.repoUrl && (
+              <a href={project.data.repoUrl} class="inline-flex items-center justify-center text-sm font-medium px-5 py-2.5 rounded-full no-underline bg-transparent text-ink border border-hairline hover:border-ink transition-all" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>
+            )}
           </div>
         </div>
       </div>
@@ -49,97 +53,3 @@ const { Content } = await render(project);
   </main>
   <Footer />
 </BaseLayout>
-
-<style>
-  .project-page {
-    padding: 100px 0 var(--space-xxl);
-  }
-
-  .back-link {
-    display: inline-block;
-    font-size: 13px;
-    color: var(--ink-muted);
-    margin-bottom: var(--space-lg);
-    text-decoration: none;
-  }
-
-  .back-link:hover {
-    color: var(--ink);
-  }
-
-  .tag {
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--ink-muted);
-    background: var(--canvas-soft);
-    padding: 4px 10px;
-    border-radius: var(--radius-pill);
-  }
-
-  .project-content {
-    color: var(--ink-muted);
-    font-size: 15px;
-    line-height: 1.65;
-  }
-
-  .project-content p {
-    margin-bottom: var(--space-md);
-  }
-
-  .project-content h2 {
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-md);
-    color: var(--ink);
-  }
-
-  .project-content ul {
-    padding-left: var(--space-lg);
-    margin-bottom: var(--space-md);
-  }
-
-  .btn-link-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 9999px;
-    text-decoration: none;
-    background: #0066cc;
-    color: #fff;
-    border: 1px solid #0066cc;
-    transition: background 0.2s;
-  }
-
-  .btn-link-primary:hover {
-    background: #0071e3;
-    color: #fff;
-  }
-
-  .btn-link-outline {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 9999px;
-    text-decoration: none;
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--hairline);
-    transition: border-color 0.2s;
-  }
-
-  .btn-link-outline:hover {
-    border-color: var(--ink);
-    color: var(--ink);
-  }
-
-  @media (max-width: 480px) {
-    .project-content .flex {
-      flex-direction: column;
-    }
-  }
-</style>

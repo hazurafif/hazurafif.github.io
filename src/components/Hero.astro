@@ -2,108 +2,19 @@
 
 ---
 
-<section class="hero">
-  <div class="container hero-inner">
+<section class="min-h-[85vh] flex items-center bg-canvas-soft pt-20">
+  <div class="max-w-[1060px] mx-auto px-6 w-full md:px-8">
     <div>
-      <p class="hero-greeting">Hi, I'm</p>
-      <h1 class="hero-name">Hanif Zufar Rafif</h1>
-      <p class="hero-title">Computer Engineer & AI Application Engineer</p>
-      <p class="hero-desc">
+      <p class="text-primary text-sm font-medium mb-2">Hi, I'm</p>
+      <h1 class="max-w-[700px] mb-4">Hanif Zufar Rafif</h1>
+      <p class="text-lg font-medium text-ink-muted mb-4 max-w-[550px]">Computer Engineer & AI Application Engineer</p>
+      <p class="text-ink-muted max-w-[500px] mb-8 leading-relaxed">
         I build intelligent automation, scalable AI agents, and robust full-stack applications that bridge backend systems with cutting-edge AI.
       </p>
-      <div class="hero-actions">
-        <a href="/#projects" class="btn-link btn-primary-link">See my work</a>
-        <a href="/#contact" class="btn-link btn-outline-link">Get in touch</a>
+      <div class="flex gap-2 flex-wrap">
+        <a href="/#projects" class="inline-flex items-center justify-center text-sm font-medium px-5 py-2.5 rounded-full no-underline bg-primary text-white border border-primary hover:bg-primary-hover hover:text-white transition-all">See my work</a>
+        <a href="/#contact" class="inline-flex items-center justify-center text-sm font-medium px-5 py-2.5 rounded-full no-underline bg-transparent text-ink border border-hairline hover:border-ink transition-all">Get in touch</a>
       </div>
     </div>
   </div>
 </section>
-
-<style>
-  .hero {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    background: var(--canvas-soft);
-    padding-top: 80px;
-  }
-
-  .hero-inner {
-    width: 100%;
-  }
-
-  .hero-greeting {
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--primary);
-    margin-bottom: var(--space-sm);
-  }
-
-  .hero-name {
-    margin-bottom: var(--space-md);
-    max-width: 700px;
-  }
-
-  .hero-title {
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: var(--ink-muted);
-    margin-bottom: var(--space-md);
-    max-width: 550px;
-  }
-
-  .hero-desc {
-    color: var(--ink-muted);
-    max-width: 500px;
-    margin-bottom: var(--space-xl);
-    line-height: 1.65;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: var(--space-sm);
-    flex-wrap: wrap;
-  }
-
-  .btn-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    font-weight: 500;
-    padding: 10px 20px;
-    border-radius: 9999px;
-    text-decoration: none;
-    transition: all 0.2s;
-    cursor: pointer;
-  }
-
-  .btn-primary-link {
-    background: #0066cc;
-    color: #ffffff;
-    border: 1px solid #0066cc;
-  }
-
-  .btn-primary-link:hover {
-    background: #0071e3;
-    color: #ffffff;
-  }
-
-  .btn-outline-link {
-    background: transparent;
-    color: var(--ink);
-    border: 1px solid var(--hairline);
-  }
-
-  .btn-outline-link:hover {
-    border-color: var(--ink);
-    color: var(--ink);
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      min-height: 90vh;
-      padding-top: 100px;
-    }
-  }
-</style>
