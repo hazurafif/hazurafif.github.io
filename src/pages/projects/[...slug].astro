@@ -19,12 +19,12 @@ const { Content } = await render(project);
 <BaseLayout title={`${project.data.title} — Hanif Zufar Rafif`}>
   <Header />
   <main>
-    <article class="pt-24 pb-16 scroll-offset">
+    <article class="py-24 md:py-32">
       <div class="max-w-[1060px] mx-auto px-6 md:px-8">
-        <a href="/#projects" class="inline-block text-sm text-ink-muted no-underline mb-6 hover:text-ink">&larr; Back</a>
-        <div class="glass rounded-[14px] p-8 max-w-[700px]">
+        <a href="/#projects" class="inline-block text-sm text-ink-muted no-underline mb-8 hover:text-ink transition-colors">&larr; Back to projects</a>
+        <div class="max-w-[700px]">
           <header class="mb-8">
-            <h1 class="mb-4">{project.data.title}</h1>
+            <h1 class="text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.12] -tracking-[0.02em] mb-4">{project.data.title}</h1>
             <div class="text-[13px] text-ink-muted mb-4">
               <time datetime={project.data.pubDate.toISOString()}>
                 {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
@@ -36,15 +36,15 @@ const { Content } = await render(project);
               </div>
             )}
           </header>
-          <div class="text-ink-muted text-sm leading-relaxed space-y-4 [&_h2]:text-ink [&_h2]:text-xl [&_h2]:mt-8 [&_h2]:mb-4 [&_ul]:pl-6 [&_li]:mb-2">
+          <div class="text-ink-muted text-sm leading-relaxed space-y-5 [&_h2]:text-ink [&_h2]:text-xl [&_h2]:font-semibold [&_h2]:mt-8 [&_h2]:mb-4 [&_ul]:pl-6 [&_li]:mb-2">
             <Content />
           </div>
-          <div class="flex gap-3 mt-8 pt-6 border-t border-divider">
+          <div class="flex gap-3 mt-10 pt-6 border-t border-divider">
             {project.data.liveUrl && (
-              <a href={project.data.liveUrl} class="inline-flex items-center justify-center text-sm font-medium px-5 py-2.5 rounded-full no-underline bg-primary text-white border border-primary hover:bg-primary-hover hover:text-white transition-all" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>
+              <a href={project.data.liveUrl} class="inline-flex items-center justify-center text-sm font-medium px-6 py-3 rounded-full no-underline bg-primary text-white hover:bg-primary-hover transition-all active:scale-[0.97]" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>
             )}
             {project.data.repoUrl && (
-              <a href={project.data.repoUrl} class="inline-flex items-center justify-center text-sm font-medium px-5 py-2.5 rounded-full no-underline bg-transparent text-ink border border-hairline hover:border-ink transition-all" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>
+              <a href={project.data.repoUrl} class="inline-flex items-center justify-center text-sm font-medium px-6 py-3 rounded-full no-underline bg-white text-ink border border-hairline hover:border-ink transition-all active:scale-[0.97]" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>
             )}
           </div>
         </div>

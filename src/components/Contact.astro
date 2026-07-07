@@ -1,6 +1,12 @@
 ---
 
-const contactInfo = [
+interface ContactItem {
+  label: string;
+  href: string;
+  text: string;
+}
+
+const contactInfo: ContactItem[] = [
   { label: 'Email', href: 'mailto:your.email@example.com', text: 'your.email@example.com' },
   { label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername', text: 'linkedin.com/in/yourusername' },
   { label: 'GitHub', href: 'https://github.com/yourusername', text: 'github.com/yourusername' },
@@ -8,17 +14,17 @@ const contactInfo = [
 
 ---
 
-<section id="contact" class="scroll-offset py-16 md:py-20 bg-section-alt">
+<section id="contact" class="scroll-mt-20 py-20 md:py-28 bg-canvas-soft">
   <div class="max-w-[1060px] mx-auto px-6 md:px-8">
-    <div class="glass rounded-[14px] p-8 max-w-[640px]">
-      <p class="text-[13px] font-medium tracking-widest uppercase text-ink-muted-light mb-4">Contact</p>
-      <h2 class="mb-8 text-[clamp(1.25rem,2.5vw,1.5rem)]">Let's talk AI, backend architecture, or the future of automation.</h2>
+    <div class="max-w-[640px]">
+      <p class="section-label">Contact</p>
+      <h2 class="text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.12] -tracking-[0.02em] mb-10">Let's talk AI, backend architecture, or the future of automation.</h2>
       <div class="flex flex-col">
         {contactInfo.map((item) => (
-          <a href={item.href} class="flex items-center gap-6 py-4 border-b border-divider first:border-t no-underline hover:opacity-60 transition-opacity" target="_blank" rel="noopener noreferrer">
+          <a href={item.href} class="flex items-center gap-4 py-4 border-b border-divider first:border-t no-underline hover:opacity-60 transition-opacity group" target="_blank" rel="noopener noreferrer">
             <span class="text-sm font-semibold text-primary min-w-[4.5rem]">{item.label}</span>
             <span class="flex-1 text-sm text-ink-muted">{item.text}</span>
-            <span class="text-ink-muted-light text-base transition-transform group-hover:translate-x-1">&rarr;</span>
+            <span class="text-ink-muted-light text-sm transition-transform group-hover:translate-x-1">&rarr;</span>
           </a>
         ))}
       </div>
