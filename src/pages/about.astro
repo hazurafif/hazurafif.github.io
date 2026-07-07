@@ -13,7 +13,7 @@ import Footer from '@/components/Footer.astro';
           <p class="section-number">About</p>
           <h1 class="section-title">A bit about me.</h1>
         </div>
-        <div class="about-content">
+        <div class="about-content glass">
           <p>
             I'm a Computer Engineer and AI Application Engineer based in Indonesia.
             I graduated with a degree in <strong>Computer Engineering</strong> from the
@@ -48,35 +48,35 @@ import Footer from '@/components/Footer.astro';
 <style>
   .section-number {
     font-size: 14px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
     margin-bottom: var(--space-sm);
     text-transform: uppercase;
-    letter-spacing: 0;
   }
 
   .about-page {
-    padding-top: 120px;
+    padding-top: 100px;
   }
 
   .about-content {
-    max-width: 640px;
+    max-width: 680px;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xxl);
   }
 
   .about-content p {
-    color: var(--ink-mute);
-    margin-bottom: var(--space-xl);
-    font-size: 18px;
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 1.5;
-    letter-spacing: -0.135px;
+    color: var(--ink-muted-48);
+    margin-bottom: var(--space-lg);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
   }
 
   .about-content strong {
     font-weight: 600;
-    font-variation-settings: 'wght' 600;
     color: var(--ink);
   }
 </style>

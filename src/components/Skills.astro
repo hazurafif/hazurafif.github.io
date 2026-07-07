@@ -24,12 +24,12 @@ const skillGroups = [
 <section id="skills" class="section">
   <div class="container">
     <div class="section-header">
-      <p class="section-number">04 &mdash; Skills</p>
+      <p class="section-number">Skills</p>
       <h2 class="section-title">Technologies I work with.</h2>
     </div>
     <div class="skills-grid">
       {skillGroups.map((group) => (
-        <div class="skill-group">
+        <div class="skill-group glass">
           <p class="skill-category">{group.category}</p>
           <div class="skill-items">
             {group.items.map((item) => (
@@ -45,12 +45,12 @@ const skillGroups = [
 <style>
   .section-number {
     font-size: 14px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
     margin-bottom: var(--space-sm);
     text-transform: uppercase;
-    letter-spacing: 0;
   }
 
   .skills-grid {
@@ -66,20 +66,17 @@ const skillGroups = [
   }
 
   .skill-group {
-    background: var(--canvas);
-    border: 1px solid var(--hairline);
     border-radius: var(--radius-lg);
-    padding: var(--space-xxl);
+    padding: var(--space-xl);
   }
 
   .skill-category {
     font-size: 12px;
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 1.4;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
     text-transform: uppercase;
-    letter-spacing: 0;
     margin-bottom: var(--space-lg);
   }
 
@@ -89,13 +86,12 @@ const skillGroups = [
   }
 
   .skill-item {
-    font-size: 16px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    line-height: 1.5;
-    color: var(--ink);
-    padding: var(--space-md) 0;
-    border-bottom: 1px solid var(--hairline);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--divider-soft);
   }
 
   .skill-item:last-child {

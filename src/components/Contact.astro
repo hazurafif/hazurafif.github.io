@@ -8,95 +8,119 @@ const contactInfo = [
 
 ---
 
-<section id="contact" class="contact-band">
+<section id="contact" class="section contact-section">
   <div class="container">
-    <div class="contact-inner">
-      <p class="contact-label">05 &mdash; Let's Connect</p>
-      <h2 class="contact-heading">Whether you want to talk about AI agents, backend architecture in Go, or the future of automation—let's chat.</h2>
-      <div class="contact-links">
-        {contactInfo.map((item) => (
-          <a href={item.href} class="contact-item" target="_blank" rel="noopener noreferrer">
-            <span class="contact-item-label">{item.label}</span>
-            <span class="contact-item-arrow">&rarr;</span>
-          </a>
-        ))}
+    <div class="contact-card glass">
+      <div class="contact-inner">
+        <p class="contact-label">Contact</p>
+        <h2 class="contact-heading">Let's talk AI, backend architecture, or the future of automation.</h2>
+        <div class="contact-links">
+          {contactInfo.map((item) => (
+            <a href={item.href} class="contact-item" target="_blank" rel="noopener noreferrer">
+              <span class="contact-item-label">{item.label}</span>
+              <span class="contact-item-value">{item.text}</span>
+              <span class="contact-arrow">&rarr;</span>
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .contact-band {
-    background: var(--teal-deep);
-    padding: 96px 0;
-    margin-top: var(--space-xxl);
+  .contact-section {
+    padding-bottom: var(--space-section);
   }
 
-  .contact-inner {
+  .contact-card {
+    border-radius: var(--radius-lg);
+    padding: var(--space-xxl);
     max-width: 680px;
   }
 
   .contact-label {
     font-size: 14px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    color: var(--teal-mid);
-    margin-bottom: var(--space-xl);
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
     text-transform: uppercase;
-    letter-spacing: 0;
+    margin-bottom: var(--space-lg);
   }
 
   .contact-heading {
-    font-size: clamp(1.5rem, 3.5vw, 2rem);
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 1.14;
-    letter-spacing: -0.63px;
-    color: var(--on-primary);
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.19;
+    letter-spacing: 0.231px;
     margin-bottom: var(--space-xxl);
   }
 
   .contact-links {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
   }
 
   .contact-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: var(--space-lg);
     padding: var(--space-lg) 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--divider-soft);
     text-decoration: none;
     transition: opacity 0.2s;
   }
 
   .contact-item:first-of-type {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--divider-soft);
   }
 
   .contact-item:hover {
-    opacity: 0.7;
+    opacity: 0.6;
   }
 
   .contact-item-label {
-    font-size: 18px;
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.374px;
+    color: var(--primary);
+    min-width: 5rem;
+  }
+
+  .contact-item-value {
+    flex: 1;
+    font-size: 15px;
+    font-weight: 400;
     line-height: 1.5;
-    letter-spacing: -0.135px;
-    color: var(--on-primary);
+    color: var(--ink-muted-48);
   }
 
-  .contact-item-arrow {
-    font-size: 1.25rem;
-    color: var(--teal-mid);
+  .contact-arrow {
+    color: var(--ink-muted-48);
+    font-size: 1.125rem;
+    transition: transform 0.2s;
   }
 
-  @media (max-width: 768px) {
-    .contact-band {
-      padding: var(--space-xxl) 0;
+  .contact-item:hover .contact-arrow {
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 480px) {
+    .contact-card {
+      padding: var(--space-xl);
+    }
+
+    .contact-item {
+      flex-wrap: wrap;
+      gap: var(--space-xs);
+    }
+
+    .contact-item-value {
+      width: 100%;
+      order: 3;
+      font-size: 14px;
+      word-break: break-all;
     }
   }
 </style>

@@ -7,12 +7,14 @@ import Footer from '@/components/Footer.astro';
 <BaseLayout title="404 — Page not found">
   <Header />
   <main>
-    <section class="not-found">
+    <section class="nf-section">
       <div class="container">
-        <p class="nf-code">404</p>
-        <h1 class="nf-title">Page not found</h1>
-        <p class="nf-text">The page you're looking for doesn't exist or has been moved.</p>
-        <a href="/" class="nf-cta">Go Home &rarr;</a>
+        <div class="nf-card glass">
+          <p class="nf-code">404</p>
+          <h1 class="nf-title">Page not found</h1>
+          <p class="nf-text">The page you're looking for doesn't exist or has been moved.</p>
+          <a href="/" class="btn btn-primary">Go Home &rarr;</a>
+        </div>
       </div>
     </section>
   </main>
@@ -20,54 +22,40 @@ import Footer from '@/components/Footer.astro';
 </BaseLayout>
 
 <style>
-  .not-found {
-    padding: 120px 0 var(--space-huge);
-    text-align: center;
+  .nf-section {
     min-height: 80vh;
     display: flex;
     align-items: center;
+    padding: 100px 0;
+  }
+
+  .nf-card {
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xxl);
   }
 
   .nf-code {
-    font-size: clamp(5rem, 10vw, 8rem);
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 0.96;
-    color: var(--hairline);
+    font-size: clamp(4rem, 10vw, 6rem);
+    font-weight: 600;
+    line-height: 1.07;
+    letter-spacing: -0.28px;
+    color: var(--primary);
     margin-bottom: var(--space-lg);
   }
 
   .nf-title {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 
   .nf-text {
-    font-size: 16px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    line-height: 1.5;
-    color: var(--ink-mute);
-    margin-bottom: var(--space-xxl);
-  }
-
-  .nf-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: 700;
-    font-variation-settings: 'wght' 700;
-    line-height: 1;
-    color: var(--on-primary);
-    background: var(--primary);
-    border: none;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .nf-cta:hover {
-    background: var(--primary-deep);
-    color: var(--on-primary);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+    color: var(--ink-muted-48);
+    margin-bottom: var(--space-xl);
   }
 </style>

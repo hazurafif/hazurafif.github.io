@@ -5,7 +5,7 @@
 <section id="about" class="section">
   <div class="container">
     <div class="section-header">
-      <p class="section-number">01 &mdash; About</p>
+      <p class="section-number">About</p>
       <h2 class="section-title">A foundation in hardware-software integration, applied to AI.</h2>
     </div>
     <div class="about-grid">
@@ -22,16 +22,16 @@
           tools, and architecting end-to-end systems for production AI workloads.
         </p>
       </div>
-      <div class="about-highlights">
-        <div class="highlight">
-          <p class="highlight-label">Education</p>
-          <p class="highlight-value">B.Eng Computer Engineering</p>
-          <p class="highlight-sub">Universitas Indonesia, 2018</p>
+      <div class="about-cards">
+        <div class="about-card glass">
+          <p class="card-label">Education</p>
+          <p class="card-value">B.Eng Computer Engineering</p>
+          <p class="card-sub">Universitas Indonesia, 2018</p>
         </div>
-        <div class="highlight">
-          <p class="highlight-label">Focus</p>
-          <p class="highlight-value">AI Agents & Infrastructure</p>
-          <p class="highlight-sub">Backend systems + AI integration</p>
+        <div class="about-card glass">
+          <p class="card-label">Focus</p>
+          <p class="card-value">AI Agents & Infrastructure</p>
+          <p class="card-sub">Backend systems + AI integration</p>
         </div>
       </div>
     </div>
@@ -54,68 +54,61 @@
 
   .section-number {
     font-size: 14px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
     margin-bottom: var(--space-sm);
     text-transform: uppercase;
-    letter-spacing: 0;
   }
 
   .about-text p {
-    color: var(--ink-mute);
+    color: var(--ink-muted-48);
     margin-bottom: var(--space-lg);
-    font-size: 18px;
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 1.5;
-    letter-spacing: -0.135px;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
   }
 
   .about-text strong {
     font-weight: 600;
-    font-variation-settings: 'wght' 600;
     color: var(--ink);
   }
 
-  .about-highlights {
+  .about-cards {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
   }
 
-  .highlight {
-    background: var(--canvas);
-    border: 1px solid var(--hairline);
+  .about-card {
     border-radius: var(--radius-lg);
-    padding: var(--space-xxl);
+    padding: var(--space-xl);
   }
 
-  .highlight-label {
+  .card-label {
     font-size: 12px;
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 1.4;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
     text-transform: uppercase;
-    letter-spacing: 0;
-    margin-bottom: var(--space-sm);
-  }
-
-  .highlight-value {
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    font-size: 1.125rem;
-    line-height: 1.2;
-    letter-spacing: -0.4px;
     margin-bottom: var(--space-xs);
   }
 
-  .highlight-sub {
+  .card-value {
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -0.374px;
+    margin-bottom: var(--space-xxs);
+  }
+
+  .card-sub {
     font-size: 14px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    line-height: 1.4;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
   }
 </style>

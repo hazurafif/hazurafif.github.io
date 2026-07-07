@@ -3,15 +3,18 @@
 ---
 
 <section class="hero">
-  <div class="hero-backdrop"></div>
-  <div class="container hero-content">
-    <p class="hero-greeting">Hi, my name is</p>
-    <h1 class="hero-name">Hanif Zufar<br />Rafif.</h1>
+  <div class="hero-glow"></div>
+  <div class="container">
+    <p class="hero-greeting">Hi, I'm</p>
+    <h1 class="hero-name">Hanif Zufar<br />Rafif</h1>
     <p class="hero-title">Computer Engineer & AI Application Engineer</p>
     <p class="hero-desc">
       I build intelligent automation, scalable AI agents, and robust full-stack applications that bridge backend systems with cutting-edge AI.
     </p>
-    <a href="/#contact" class="hero-cta">Get in touch</a>
+    <div class="hero-actions">
+      <a href="/#projects" class="btn btn-primary">See my work</a>
+      <a href="/#contact" class="btn btn-outline">Get in touch</a>
+    </div>
   </div>
 </section>
 
@@ -21,97 +24,72 @@
     display: flex;
     align-items: center;
     position: relative;
-    background: var(--primary);
+    background: var(--canvas-parchment);
     overflow: hidden;
     padding-top: 80px;
   }
 
-  .hero-backdrop {
+  .hero-glow {
     position: absolute;
-    inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201, 180, 250, 0.15) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 80% 30%, rgba(120, 140, 255, 0.1) 0%, transparent 50%),
-      radial-gradient(ellipse 100% 80% at 50% 100%, rgba(201, 180, 250, 0.05) 0%, transparent 60%);
+    top: -30%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 102, 204, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
     pointer-events: none;
   }
 
-  .hero-content {
-    position: relative;
-    z-index: 1;
-  }
-
   .hero-greeting {
-    font-size: 14px;
-    font-weight: 600;
-    font-variation-settings: 'wght' 600;
-    letter-spacing: 0;
-    color: var(--violet-soft);
-    margin-bottom: var(--space-xl);
-    text-transform: uppercase;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.374px;
+    color: var(--primary);
+    margin-bottom: var(--space-sm);
   }
 
   .hero-name {
-    color: var(--on-primary);
-    margin-bottom: var(--space-lg);
     max-width: 800px;
+    margin-bottom: var(--space-lg);
   }
 
   .hero-title {
-    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 1.14;
-    letter-spacing: -0.63px;
-    color: var(--on-dark-mute);
-    margin-bottom: var(--space-xl);
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    line-height: 1.19;
+    letter-spacing: 0.231px;
+    color: var(--ink-muted-48);
+    margin-bottom: var(--space-lg);
     max-width: 600px;
   }
 
   .hero-desc {
-    font-size: 18px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    line-height: 1.5;
-    letter-spacing: -0.135px;
-    color: var(--on-dark-faint);
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.47;
+    letter-spacing: -0.374px;
+    color: var(--ink-muted-48);
     max-width: 540px;
-    margin-bottom: var(--space-xxl);
+    margin-bottom: var(--space-xl);
   }
 
-  .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: 700;
-    font-variation-settings: 'wght' 700;
-    line-height: 1;
-    color: var(--primary);
-    background: var(--violet-soft);
-    border: none;
-    border-radius: var(--radius-full);
-    text-decoration: none;
-    cursor: pointer;
-    transition: opacity 0.2s;
-  }
-
-  .hero-cta:hover {
-    opacity: 0.85;
-    color: var(--primary);
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
   }
 
   @media (max-width: 768px) {
     .hero {
       min-height: 90vh;
       align-items: flex-start;
-      padding-top: 100px;
     }
 
-    .hero-backdrop {
-      background:
-        radial-gradient(ellipse 100% 40% at 50% 30%, rgba(201, 180, 250, 0.15) 0%, transparent 60%),
-        radial-gradient(ellipse 100% 60% at 50% 100%, rgba(201, 180, 250, 0.05) 0%, transparent 50%);
+    .hero-glow {
+      width: 400px;
+      height: 400px;
+      top: -20%;
+      right: -20%;
     }
   }
 </style>

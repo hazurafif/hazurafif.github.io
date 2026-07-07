@@ -21,28 +21,28 @@ const { Content } = await render(project);
   <main>
     <article class="project-page">
       <div class="container">
-        <div class="project-back">
-          <a href="/#projects" class="back-link">&larr; Back to projects</a>
-        </div>
-        <header class="project-head">
-          <h1 class="project-title">{project.data.title}</h1>
-          <div class="project-meta">
-            <time datetime={project.data.pubDate.toISOString()}>
-              {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
-            </time>
-          </div>
-          {project.data.tags && (
-            <div class="project-tags">
-              {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        <a href="/#projects" class="back-link">&larr; Back to projects</a>
+        <div class="project-detail glass">
+          <header class="project-head">
+            <h1 class="project-title">{project.data.title}</h1>
+            <div class="project-meta">
+              <time datetime={project.data.pubDate.toISOString()}>
+                {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+              </time>
             </div>
-          )}
-        </header>
-        <div class="project-content">
-          <Content />
-        </div>
-        <div class="project-actions">
-          {project.data.liveUrl && <a href={project.data.liveUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>}
-          {project.data.repoUrl && <a href={project.data.repoUrl} class="btn-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>}
+            {project.data.tags && (
+              <div class="project-tags">
+                {project.data.tags.map((tag) => <span class="tag glass">{tag}</span>)}
+              </div>
+            )}
+          </header>
+          <div class="project-content">
+            <Content />
+          </div>
+          <div class="project-actions">
+            {project.data.liveUrl && <a href={project.data.liveUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>}
+            {project.data.repoUrl && <a href={project.data.repoUrl} class="btn btn-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>}
+          </div>
         </div>
       </div>
     </article>
@@ -52,19 +52,17 @@ const { Content } = await render(project);
 
 <style>
   .project-page {
-    padding: 120px 0 var(--space-huge);
-  }
-
-  .project-back {
-    margin-bottom: var(--space-xxl);
+    padding: 100px 0 var(--space-section);
   }
 
   .back-link {
+    display: inline-block;
     font-size: 14px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    line-height: 1.4;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
+    margin-bottom: var(--space-xl);
     text-decoration: none;
     transition: color 0.2s;
   }
@@ -73,9 +71,14 @@ const { Content } = await render(project);
     color: var(--ink);
   }
 
+  .project-detail {
+    border-radius: var(--radius-lg);
+    padding: var(--space-xxl);
+    max-width: 720px;
+  }
+
   .project-head {
     margin-bottom: var(--space-xxl);
-    max-width: 680px;
   }
 
   .project-title {
@@ -85,36 +88,33 @@ const { Content } = await render(project);
   .project-meta {
     margin-bottom: var(--space-lg);
     font-size: 14px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    line-height: 1.4;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
   }
 
   .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-sm);
+    gap: var(--space-xs);
   }
 
   .tag {
     font-size: 12px;
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 1.4;
-    color: var(--ink-mute);
-    background: var(--canvas-soft);
-    padding: 0.3em 0.7em;
-    border-radius: var(--radius-xs);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.12px;
+    padding: 0.35em 0.8em;
+    border-radius: var(--radius-pill);
+    color: var(--ink-muted-48);
   }
 
   .project-content {
-    max-width: 680px;
-    color: var(--ink-mute);
+    color: var(--ink-muted-48);
     font-size: 16px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    line-height: 1.5;
+    font-weight: 400;
+    line-height: 1.6;
   }
 
   .project-content p {
@@ -140,59 +140,17 @@ const { Content } = await render(project);
     display: flex;
     gap: var(--space-lg);
     margin-top: var(--space-xxl);
-    padding-top: var(--space-xxl);
-    border-top: 1px solid var(--hairline);
-    max-width: 680px;
-  }
-
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: 700;
-    font-variation-settings: 'wght' 700;
-    line-height: 1;
-    color: var(--on-primary);
-    background: var(--primary);
-    border: none;
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: background 0.2s;
-  }
-
-  .btn-primary:hover {
-    background: var(--primary-deep);
-    color: var(--on-primary);
-  }
-
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    padding: 12px 20px;
-    font-size: 16px;
-    font-weight: 700;
-    font-variation-settings: 'wght' 700;
-    line-height: 1;
-    color: var(--ink);
-    background: var(--canvas);
-    border: 1px solid var(--hairline);
-    border-radius: var(--radius-md);
-    text-decoration: none;
-    transition: border-color 0.2s;
-  }
-
-  .btn-outline:hover {
-    border-color: var(--ink);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--divider-soft);
   }
 
   @media (max-width: 480px) {
-    .project-actions {
-      flex-direction: column;
+    .project-detail {
+      padding: var(--space-xl);
     }
 
-    .project-page {
-      padding-top: 100px;
+    .project-actions {
+      flex-direction: column;
     }
   }
 </style>

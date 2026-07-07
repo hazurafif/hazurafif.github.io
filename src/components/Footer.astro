@@ -14,6 +14,7 @@ const year = new Date().getFullYear();
   .footer {
     padding: var(--space-xxl) 0;
     background: var(--canvas);
+    border-top: 1px solid var(--hairline);
   }
 
   .footer-inner {
@@ -26,18 +27,18 @@ const year = new Date().getFullYear();
 
   .footer-copy {
     font-size: 14px;
-    font-weight: 460;
-    font-variation-settings: 'wght' 460;
-    line-height: 1.4;
-    color: var(--ink-mute);
+    font-weight: 400;
+    line-height: 1.43;
+    letter-spacing: -0.224px;
+    color: var(--ink-muted-48);
   }
 
   .footer-built {
     font-size: 12px;
-    font-weight: 540;
-    font-variation-settings: 'wght' 540;
-    line-height: 1.4;
-    color: var(--ink-faint);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.12px;
+    color: var(--ink-muted-48);
   }
 
   @media (max-width: 480px) {
