@@ -24,7 +24,7 @@ const { Content } = await render(project);
         <a href="/#projects" class="inline-block text-sm text-ink-muted no-underline mb-8 hover:text-ink transition-colors">&larr; Back to projects</a>
         <div class="max-w-[700px]">
           <header class="mb-8">
-            <h1 class="text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.12] -tracking-[0.02em] mb-4">{project.data.title}</h1>
+            <h1 class="text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.08] -tracking-[0.03em] mb-4">{project.data.title}</h1>
             <div class="text-[13px] text-ink-muted mb-4">
               <time datetime={project.data.pubDate.toISOString()}>
                 {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
