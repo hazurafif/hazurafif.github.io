@@ -39,6 +39,7 @@
     color: var(--text-secondary);
     margin-bottom: var(--space-lg);
     max-width: 660px;
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
   }
 
   .hero-desc {
@@ -53,5 +54,21 @@
     display: flex;
     gap: var(--space-md);
     flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: var(--space-2xl) 0 var(--space-xl);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: var(--space-xl) 0 var(--space-lg);
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+    }
   }
 </style>

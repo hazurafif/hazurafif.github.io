@@ -94,4 +94,14 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
   .card-link:hover {
     color: var(--accent);
   }
+
+  @media (max-width: 480px) {
+    .project-card {
+      padding: var(--space-lg);
+    }
+
+    .card-title {
+      font-size: 1.0625rem;
+    }
+  }
 </style>

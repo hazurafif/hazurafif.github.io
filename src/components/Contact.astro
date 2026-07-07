@@ -78,4 +78,21 @@ const contactInfo = [
   .contact-item:hover .contact-arrow {
     transform: translateX(4px);
   }
+
+  @media (max-width: 480px) {
+    .contact-item {
+      flex-wrap: wrap;
+      gap: var(--space-sm);
+      padding: var(--space-md);
+    }
+
+    .contact-label {
+      min-width: auto;
+    }
+
+    .contact-text {
+      font-size: 0.8125rem;
+      word-break: break-all;
+    }
+  }
 </style>

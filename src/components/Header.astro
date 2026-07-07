@@ -11,13 +11,25 @@ const links = [
 <header class="header">
   <nav class="container nav">
     <a href="/" class="logo">hazurafif</a>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       {links.map((link) => (
-        <li><a href={link.href} class="nav-link">{link.label}</a></li>
+        <li><a href={link.href} class="nav-link" onclick="document.getElementById('nav-links').classList.remove('open'); document.getElementById('hamburger').classList.remove('active')">{link.label}</a></li>
       ))}
     </ul>
   </nav>
 </header>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click', () => {
+    document.getElementById('nav-links').classList.toggle('open');
+    document.getElementById('hamburger').classList.toggle('active');
+  });
+</script>
 
 <style>
   .header {
@@ -46,6 +58,38 @@ const links = [
     color: var(--accent);
   }
 
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 110;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: transform 0.3s, opacity 0.3s;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
   .nav-links {
     list-style: none;
     display: flex;
@@ -60,5 +104,39 @@ const links = [
 
   .nav-link:hover {
     color: var(--text);
+  }
+
+  @media (max-width: 640px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background: rgba(252, 252, 250, 0.97);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-xl);
+      z-index: 105;
+    }
+
+    .nav-links.open {
+      display: flex;
+    }
+
+    .nav-link {
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .nav-link:hover {
+      color: var(--accent);
+    }
   }
 </style>
