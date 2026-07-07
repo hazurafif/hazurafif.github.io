@@ -1,4 +1,6 @@
 ---
+import { GlassCard } from '@/components/ui/glass-card';
+import { CardContent, CardFooter } from '@/components/ui/card';
 import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
@@ -9,67 +11,28 @@ const { project } = Astro.props;
 const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
 ---
 
-<article class="project-card glass">
+<GlassCard class="flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" client:load>
+  <CardContent class="p-6">
+    <p class="text-[1.75rem] mb-4 leading-none">{icon || '📁'}</p>
+    <h3 class="mb-2">{title}</h3>
+    <p class="text-[14px] text-muted-foreground leading-relaxed">{description}</p>
+  </CardContent>
   <div>
-    <p class="card-icon">{icon || '📁'}</p>
-    <h3 class="card-title">{title}</h3>
-    <p class="card-desc">{description}</p>
-  </div>
-  <div class="card-footer">
-    <div class="card-tags">
-      {tags.map((tag) => <span class="tag">{tag}</span>)}
+    <div class="px-6 pb-2">
+      <div class="flex flex-wrap gap-1.5">
+        {tags.map((tag) => <span class="tag">{tag}</span>)}
+      </div>
     </div>
     {(repoUrl || liveUrl) && (
-      <div class="card-links">
-        {repoUrl && <a href={repoUrl} class="card-link" target="_blank" rel="noopener noreferrer">Source</a>}
-        {liveUrl && <a href={liveUrl} class="card-link" target="_blank" rel="noopener noreferrer">Live &nearr;</a>}
-      </div>
+      <CardFooter class="border-t border-border/50 px-6 py-4 bg-transparent">
+        {repoUrl && <a href={repoUrl} class="card-link">Source</a>}
+        {liveUrl && <a href={liveUrl} class="card-link">Live &nearr;</a>}
+      </CardFooter>
     )}
   </div>
-</article>
+</GlassCard>
 
 <style>
-  .project-card {
-    border-radius: var(--radius-md);
-    padding: var(--space-xl);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.25s, box-shadow 0.25s;
-  }
-
-  .project-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
-  }
-
-  .card-icon {
-    font-size: 1.75rem;
-    margin-bottom: var(--space-md);
-    line-height: 1;
-  }
-
-  .card-title {
-    margin-bottom: var(--space-sm);
-  }
-
-  .card-desc {
-    font-size: 14px;
-    color: var(--ink-muted);
-    line-height: 1.55;
-  }
-
-  .card-footer {
-    margin-top: var(--space-lg);
-  }
-
-  .card-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: var(--space-md);
-  }
-
   .tag {
     font-size: 11px;
     font-weight: 500;
@@ -79,17 +42,12 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
     border-radius: var(--radius-pill);
   }
 
-  .card-links {
-    display: flex;
-    gap: var(--space-lg);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--divider-soft);
-  }
-
   .card-link {
     font-size: 14px;
     font-weight: 500;
     color: var(--primary);
+    text-decoration: none;
+    transition: opacity 0.2s;
   }
 
   .card-link:hover {

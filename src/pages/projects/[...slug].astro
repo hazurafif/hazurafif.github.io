@@ -2,6 +2,9 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import { GlassCard } from '@/components/ui/glass-card';
+import { CardContent } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -22,28 +25,38 @@ const { Content } = await render(project);
     <article class="project-page">
       <div class="container">
         <a href="/#projects" class="back-link">&larr; Back</a>
-        <div class="project-card glass">
-          <header class="project-head">
-            <h1 class="project-title">{project.data.title}</h1>
-            <div class="project-meta">
-              <time datetime={project.data.pubDate.toISOString()}>
-                {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
-              </time>
-            </div>
-            {project.data.tags && (
-              <div class="project-tags">
-                {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+        <GlassCard class="max-w-[700px]" client:load>
+          <CardContent class="p-8">
+            <header class="mb-8">
+              <h1 class="mb-4">{project.data.title}</h1>
+              <div class="text-[13px] text-muted-foreground mb-4">
+                <time datetime={project.data.pubDate.toISOString()}>
+                  {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+                </time>
               </div>
-            )}
-          </header>
-          <div class="project-content">
-            <Content />
-          </div>
-          <div class="project-actions">
-            {project.data.liveUrl && <a href={project.data.liveUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>}
-            {project.data.repoUrl && <a href={project.data.repoUrl} class="btn btn-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>}
-          </div>
-        </div>
+              {project.data.tags && (
+                <div class="flex flex-wrap gap-1.5">
+                  {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+                </div>
+              )}
+            </header>
+            <div class="project-content">
+              <Content />
+            </div>
+            <div class="flex gap-3 mt-8 pt-6 border-t border-border/50">
+              {project.data.liveUrl && (
+                <Button variant="default" size="lg" as-child>
+                  <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>
+                </Button>
+              )}
+              {project.data.repoUrl && (
+                <Button variant="outline" size="lg" as-child>
+                  <a href={project.data.repoUrl} target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>
+                </Button>
+              )}
+            </div>
+          </CardContent>
+        </GlassCard>
       </div>
     </article>
   </main>
@@ -65,32 +78,6 @@ const { Content } = await render(project);
 
   .back-link:hover {
     color: var(--ink);
-  }
-
-  .project-card {
-    border-radius: var(--radius-md);
-    padding: var(--space-xl);
-    max-width: 700px;
-  }
-
-  .project-head {
-    margin-bottom: var(--space-xl);
-  }
-
-  .project-title {
-    margin-bottom: var(--space-md);
-  }
-
-  .project-meta {
-    margin-bottom: var(--space-md);
-    font-size: 13px;
-    color: var(--ink-muted);
-  }
-
-  .project-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
   }
 
   .tag {
@@ -123,16 +110,8 @@ const { Content } = await render(project);
     margin-bottom: var(--space-md);
   }
 
-  .project-actions {
-    display: flex;
-    gap: var(--space-md);
-    margin-top: var(--space-xl);
-    padding-top: var(--space-lg);
-    border-top: 1px solid var(--divider-soft);
-  }
-
   @media (max-width: 480px) {
-    .project-actions {
+    .project-content .flex {
       flex-direction: column;
     }
   }

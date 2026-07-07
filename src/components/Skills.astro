@@ -1,4 +1,6 @@
 ---
+import { GlassCard } from '@/components/ui/glass-card';
+import { CardContent } from '@/components/ui/card';
 
 const skillGroups = [
   {
@@ -18,7 +20,6 @@ const skillGroups = [
     items: ['Zabbix', 'Git'],
   },
 ];
-
 ---
 
 <section id="skills" class="section">
@@ -29,14 +30,16 @@ const skillGroups = [
     </div>
     <div class="skills-grid">
       {skillGroups.map((group) => (
-        <div class="skill-group glass">
-          <p class="skill-category">{group.category}</p>
-          <div class="skill-items">
-            {group.items.map((item) => (
-              <p class="skill-item">{item}</p>
-            ))}
-          </div>
-        </div>
+        <GlassCard client:load>
+          <CardContent class="p-6">
+            <p class="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-4">{group.category}</p>
+            <div class="flex flex-col">
+              {group.items.map((item) => (
+                <p class="text-[15px] py-2 border-b border-border/50 last:border-b-0">{item}</p>
+              ))}
+            </div>
+          </CardContent>
+        </GlassCard>
       ))}
     </div>
   </div>
@@ -53,34 +56,5 @@ const skillGroups = [
     .skills-grid {
       grid-template-columns: 1fr;
     }
-  }
-
-  .skill-group {
-    border-radius: var(--radius-md);
-    padding: var(--space-xl);
-  }
-
-  .skill-category {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--ink-muted-light);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-md);
-  }
-
-  .skill-items {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .skill-item {
-    font-size: 15px;
-    padding: var(--space-sm) 0;
-    border-bottom: 1px solid var(--divider-soft);
-  }
-
-  .skill-item:last-child {
-    border-bottom: none;
   }
 </style>

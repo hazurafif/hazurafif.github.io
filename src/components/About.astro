@@ -1,5 +1,6 @@
 ---
-
+import { GlassCard } from '@/components/ui/glass-card';
+import { CardContent } from '@/components/ui/card';
 ---
 
 <section id="about" class="section">
@@ -23,16 +24,20 @@
         </p>
       </div>
       <div class="about-cards">
-        <div class="about-card glass">
-          <p class="card-label">Education</p>
-          <p class="card-value">B.Eng Computer Engineering</p>
-          <p class="card-sub">Universitas Indonesia, 2018</p>
-        </div>
-        <div class="about-card glass">
-          <p class="card-label">Focus</p>
-          <p class="card-value">AI Agents & Infrastructure</p>
-          <p class="card-sub">Backend systems + AI integration</p>
-        </div>
+        <GlassCard client:load>
+          <CardContent class="p-6">
+            <p class="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-2">Education</p>
+            <p class="font-semibold text-[15px] mb-0.5">B.Eng Computer Engineering</p>
+            <p class="text-[13px] text-muted-foreground">Universitas Indonesia, 2018</p>
+          </CardContent>
+        </GlassCard>
+        <GlassCard client:load>
+          <CardContent class="p-6">
+            <p class="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-2">Focus</p>
+            <p class="font-semibold text-[15px] mb-0.5">AI Agents & Infrastructure</p>
+            <p class="text-[13px] text-muted-foreground">Backend systems + AI integration</p>
+          </CardContent>
+        </GlassCard>
       </div>
     </div>
   </div>
@@ -67,30 +72,5 @@
     display: flex;
     flex-direction: column;
     gap: var(--space-md);
-  }
-
-  .about-card {
-    border-radius: var(--radius-md);
-    padding: var(--space-lg);
-  }
-
-  .card-label {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--ink-muted-light);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: var(--space-sm);
-  }
-
-  .card-value {
-    font-weight: 600;
-    font-size: 15px;
-    margin-bottom: 2px;
-  }
-
-  .card-sub {
-    font-size: 13px;
-    color: var(--ink-muted);
   }
 </style>

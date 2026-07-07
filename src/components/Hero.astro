@@ -1,5 +1,5 @@
 ---
-
+import { Button } from '@/components/ui/button';
 ---
 
 <section class="hero">
@@ -12,8 +12,12 @@
         I build intelligent automation, scalable AI agents, and robust full-stack applications that bridge backend systems with cutting-edge AI.
       </p>
       <div class="hero-actions">
-        <a href="/#projects" class="btn btn-primary">See my work</a>
-        <a href="/#contact" class="btn btn-outline">Get in touch</a>
+        <Button variant="default" size="lg" as-child>
+          <a href="/#projects">See my work</a>
+        </Button>
+        <Button variant="outline" size="lg" as-child>
+          <a href="/#contact">Get in touch</a>
+        </Button>
       </div>
     </div>
   </div>
@@ -61,7 +65,7 @@
 
   .hero-actions {
     display: flex;
-    gap: var(--space-md);
+    gap: var(--space-sm);
     flex-wrap: wrap;
   }
 

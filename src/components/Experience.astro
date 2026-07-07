@@ -1,5 +1,6 @@
 ---
-
+import { GlassCard } from '@/components/ui/glass-card';
+import { CardContent } from '@/components/ui/card';
 ---
 
 <section id="experience" class="section">
@@ -8,56 +9,39 @@
       <p class="section-number">Experience</p>
       <h2>Currently building AI systems in production.</h2>
     </div>
-    <div class="exp-card glass">
-      <div class="exp-head">
-        <h3>AI Application Engineer</h3>
-        <p class="exp-meta">Full-Time &middot; June 2023 – Present</p>
-      </div>
-      <ul class="exp-items">
-        <li>
-          <span class="exp-dot"></span>
-          <span><strong>AI Agents & Chat Ecosystems:</strong> Design, develop, and deploy intelligent AI agents and conversational applications tailored to solve complex user needs.</span>
-        </li>
-        <li>
-          <span class="exp-dot"></span>
-          <span><strong>Infrastructure Automation:</strong> Architected and developed Zabbix automation tools to streamline system monitoring, alerting, and operational efficiency.</span>
-        </li>
-        <li>
-          <span class="exp-dot"></span>
-          <span><strong>Full-Stack Implementation:</strong> Build and maintain the end-to-end architecture required to support high-performance AI models in production.</span>
-        </li>
-      </ul>
-      <div class="exp-tags">
-        <span class="tag">Go</span>
-        <span class="tag">Python</span>
-        <span class="tag">AI Agents</span>
-        <span class="tag">Zabbix</span>
-        <span class="tag">Full-Stack</span>
-      </div>
-    </div>
+    <GlassCard class="max-w-[700px]" client:load>
+      <CardContent class="p-8">
+        <div class="mb-6">
+          <h3 class="mb-0.5">AI Application Engineer</h3>
+          <p class="text-[13px] text-muted-foreground">Full-Time &middot; June 2023 – Present</p>
+        </div>
+        <ul class="exp-items">
+          <li>
+            <span class="exp-dot"></span>
+            <span><strong>AI Agents & Chat Ecosystems:</strong> Design, develop, and deploy intelligent AI agents and conversational applications tailored to solve complex user needs.</span>
+          </li>
+          <li>
+            <span class="exp-dot"></span>
+            <span><strong>Infrastructure Automation:</strong> Architected and developed Zabbix automation tools to streamline system monitoring, alerting, and operational efficiency.</span>
+          </li>
+          <li>
+            <span class="exp-dot"></span>
+            <span><strong>Full-Stack Implementation:</strong> Build and maintain the end-to-end architecture required to support high-performance AI models in production.</span>
+          </li>
+        </ul>
+        <div class="flex flex-wrap gap-1.5">
+          <span class="tag">Go</span>
+          <span class="tag">Python</span>
+          <span class="tag">AI Agents</span>
+          <span class="tag">Zabbix</span>
+          <span class="tag">Full-Stack</span>
+        </div>
+      </CardContent>
+    </GlassCard>
   </div>
 </section>
 
 <style>
-  .exp-card {
-    border-radius: var(--radius-md);
-    padding: var(--space-xl);
-    max-width: 700px;
-  }
-
-  .exp-head {
-    margin-bottom: var(--space-lg);
-  }
-
-  .exp-head h3 {
-    margin-bottom: 2px;
-  }
-
-  .exp-meta {
-    font-size: 13px;
-    color: var(--ink-muted);
-  }
-
   .exp-items {
     list-style: none;
     display: flex;
@@ -86,12 +70,6 @@
     border-radius: 50%;
     background: var(--primary);
     margin-top: 0.5em;
-  }
-
-  .exp-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
   }
 
   .tag {
