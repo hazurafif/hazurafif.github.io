@@ -9,7 +9,7 @@ const { project } = Astro.props;
 const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
 ---
 
-<article class="glass rounded-[14px] p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+<article class="glass rounded-[14px] p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)]">
   <div>
     <p class="text-[1.75rem] mb-4 leading-none">{icon || '📁'}</p>
     <h3 class="mb-2">{title}</h3>
@@ -21,8 +21,8 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
     </div>
     {(repoUrl || liveUrl) && (
       <div class="flex gap-4 pt-4 border-t border-divider">
-        {repoUrl && <a href={repoUrl} class="text-sm font-medium text-primary no-underline hover:opacity-70" target="_blank" rel="noopener noreferrer">Source</a>}
-        {liveUrl && <a href={liveUrl} class="text-sm font-medium text-primary no-underline hover:opacity-70" target="_blank" rel="noopener noreferrer">Live &nearr;</a>}
+        {repoUrl && <a href={repoUrl} class="text-sm font-medium text-primary no-underline hover:opacity-70 transition-opacity" target="_blank" rel="noopener noreferrer">Source</a>}
+        {liveUrl && <a href={liveUrl} class="text-sm font-medium text-primary no-underline hover:opacity-70 transition-opacity" target="_blank" rel="noopener noreferrer">Live &nearr;</a>}
       </div>
     )}
   </div>
