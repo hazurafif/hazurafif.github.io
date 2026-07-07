@@ -10,70 +10,58 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
 ---
 
 <article class="project-card">
-  <div class="project-body">
-    <div class="project-header">
-      {icon && <span class="project-icon">{icon}</span>}
-      <h3 class="project-title">{title}</h3>
-    </div>
-    <p class="project-desc">{description}</p>
-    <div class="project-tags">
+  <div class="card-body">
+    <div class="card-icon">{icon || '📁'}</div>
+    <h3 class="card-title">{title}</h3>
+    <p class="card-desc">{description}</p>
+    <div class="card-tags">
       {tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>
   </div>
-  {(liveUrl || repoUrl) && (
-    <div class="project-links">
-      {liveUrl && <a href={liveUrl} class="project-link" target="_blank" rel="noopener noreferrer">Live &rarr;</a>}
-      {repoUrl && <a href={repoUrl} class="project-link" target="_blank" rel="noopener noreferrer">Source &rarr;</a>}
-    </div>
-  )}
+  <div class="card-links">
+    {repoUrl && <a href={repoUrl} class="card-link" target="_blank" rel="noopener noreferrer">Source</a>}
+    {liveUrl && <a href={liveUrl} class="card-link" target="_blank" rel="noopener noreferrer">Live &nearr;</a>}
+  </div>
 </article>
 
 <style>
   .project-card {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 10px;
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
-    transition: border-color 0.2s, box-shadow 0.2s;
+    justify-content: space-between;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
   }
 
   .project-card:hover {
-    border-color: var(--accent-soft);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   }
 
-  .project-body {
-    flex: 1;
-  }
-
-  .project-header {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
+  .card-icon {
+    font-size: 2rem;
     margin-bottom: var(--space-md);
-  }
-
-  .project-icon {
-    font-size: 1.5rem;
     line-height: 1;
   }
 
-  .project-title {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 500;
+  .card-title {
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+    font-size: 1.2rem;
   }
 
-  .project-desc {
+  .card-desc {
     font-size: 0.9375rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     line-height: 1.6;
     margin-bottom: var(--space-md);
   }
 
-  .project-tags {
+  .card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
@@ -83,12 +71,12 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
     font-size: 0.75rem;
     font-family: var(--font-mono);
     color: var(--accent);
-    background: var(--accent-soft);
-    padding: 0.2em 0.6em;
+    background: var(--accent-light);
+    padding: 0.25em 0.7em;
     border-radius: 4px;
   }
 
-  .project-links {
+  .card-links {
     display: flex;
     gap: var(--space-md);
     margin-top: var(--space-lg);
@@ -96,13 +84,14 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
     border-top: 1px solid var(--border);
   }
 
-  .project-link {
+  .card-link {
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--accent);
+    color: var(--text-secondary);
+    transition: color 0.2s;
   }
 
-  .project-link:hover {
-    color: #A06038;
+  .card-link:hover {
+    color: var(--accent);
   }
 </style>

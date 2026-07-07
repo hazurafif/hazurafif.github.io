@@ -19,13 +19,15 @@ const { Content } = await render(project);
 <BaseLayout title={`${project.data.title} — Hanif Zufar Rafif`} description={project.data.description}>
   <Header />
   <main>
-    <article class="section">
-      <div class="container project-article">
-        <a href="/#projects" class="back-link">&larr; Back to Projects</a>
-        <header class="project-header">
+    <article class="section project-page">
+      <div class="container">
+        <a href="/#projects" class="back-link">&larr; Back</a>
+        <header class="project-head">
           <h1 class="project-title">{project.data.title}</h1>
           <div class="project-meta">
-            <span class="project-date">{project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</span>
+            <time datetime={project.data.pubDate.toISOString()}>
+              {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+            </time>
           </div>
           {project.data.tags && (
             <div class="project-tags">
@@ -36,9 +38,9 @@ const { Content } = await render(project);
         <div class="project-content">
           <Content />
         </div>
-        <div class="project-footer-links">
-          {project.data.liveUrl && <a href={project.data.liveUrl} class="btn" target="_blank" rel="noopener noreferrer">Live Site &rarr;</a>}
-          {project.data.repoUrl && <a href={project.data.repoUrl} class="btn btn-outline" target="_blank" rel="noopener noreferrer">Source Code &rarr;</a>}
+        <div class="project-links">
+          {project.data.liveUrl && <a href={project.data.liveUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>}
+          {project.data.repoUrl && <a href={project.data.repoUrl} class="btn btn-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>}
         </div>
       </div>
     </article>
@@ -47,15 +49,15 @@ const { Content } = await render(project);
 </BaseLayout>
 
 <style>
-  .project-article {
-    max-width: var(--max-width);
+  .project-page {
+    padding-top: var(--space-2xl);
   }
 
   .back-link {
     display: inline-block;
     font-family: var(--font-mono);
     font-size: 0.875rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     margin-bottom: var(--space-xl);
     transition: color 0.2s;
   }
@@ -64,8 +66,9 @@ const { Content } = await render(project);
     color: var(--accent);
   }
 
-  .project-header {
+  .project-head {
     margin-bottom: var(--space-xl);
+    max-width: 680px;
   }
 
   .project-title {
@@ -74,12 +77,9 @@ const { Content } = await render(project);
 
   .project-meta {
     margin-bottom: var(--space-md);
-  }
-
-  .project-date {
     font-family: var(--font-mono);
-    font-size: 0.8125rem;
-    color: var(--text-muted);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
   }
 
   .project-tags {
@@ -92,13 +92,14 @@ const { Content } = await render(project);
     font-size: 0.75rem;
     font-family: var(--font-mono);
     color: var(--accent);
-    background: var(--accent-soft);
-    padding: 0.2em 0.6em;
+    background: var(--accent-light);
+    padding: 0.25em 0.7em;
     border-radius: 4px;
   }
 
   .project-content {
-    color: var(--text-muted);
+    max-width: 680px;
+    color: var(--text-secondary);
     line-height: 1.7;
     font-size: 1rem;
   }
@@ -107,44 +108,28 @@ const { Content } = await render(project);
     margin-bottom: var(--space-md);
   }
 
-  .project-footer-links {
+  .project-content h2 {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+    color: var(--text);
+  }
+
+  .project-content ul {
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
+  }
+
+  .project-content li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .project-links {
     display: flex;
     gap: var(--space-md);
     margin-top: var(--space-xl);
     padding-top: var(--space-xl);
     border-top: 1px solid var(--border);
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border-radius: 6px;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    transition: all 0.2s;
-    font-family: var(--font-body);
-  }
-
-  .btn {
-    background: var(--accent);
-    color: #fff;
-    border: 1px solid var(--accent);
-  }
-
-  .btn:hover {
-    background: #A06038;
-    border-color: #A06038;
-    color: #fff;
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--text);
-    color: var(--text);
+    max-width: 680px;
   }
 </style>

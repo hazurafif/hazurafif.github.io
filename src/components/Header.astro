@@ -1,32 +1,32 @@
 ---
 const links = [
   { href: '/', label: 'Home' },
-  { href: '/#projects', label: 'Projects' },
-  { href: '/#skills', label: 'Skills' },
-  { href: '/about', label: 'About' },
+  { href: '/#about', label: 'About' },
+  { href: '/#experience', label: 'Experience' },
+  { href: '/#projects', label: 'Work' },
   { href: '/#contact', label: 'Contact' },
 ];
 ---
 
-<header>
-  <nav class="container-wide nav">
+<header class="header">
+  <nav class="container nav">
     <a href="/" class="logo">hazurafif</a>
     <ul class="nav-links">
       {links.map((link) => (
-        <li><a href={link.href}>{link.label}</a></li>
+        <li><a href={link.href} class="nav-link">{link.label}</a></li>
       ))}
     </ul>
   </nav>
 </header>
 
 <style>
-  header {
-    padding: var(--space-lg) 0;
+  .header {
+    padding: 1.5rem 0;
     position: sticky;
     top: 0;
-    background: var(--bg);
+    background: rgba(252, 252, 250, 0.85);
+    backdrop-filter: blur(8px);
     z-index: 100;
-    border-bottom: 1px solid var(--border);
   }
 
   .nav {
@@ -52,13 +52,13 @@ const links = [
     gap: var(--space-lg);
   }
 
-  .nav-links a {
+  .nav-link {
     font-size: 0.9375rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     transition: color 0.2s;
   }
 
-  .nav-links a:hover {
+  .nav-link:hover {
     color: var(--text);
   }
 </style>

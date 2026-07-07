@@ -4,13 +4,16 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 ---
 
-<BaseLayout title="About — Hanif Zufar Rafif" description="Learn more about Hanif Zufar Rafif, a Computer Engineer & AI Application Engineer.">
+<BaseLayout title="About — Hanif Zufar Rafif" description="Learn more about Hanif Zufar Rafif, a Computer Engineer and AI Application Engineer.">
   <Header />
   <main>
-    <section class="section">
+    <section class="section about-page">
       <div class="container">
-        <h1 class="page-title">About Me</h1>
-        <div class="about-page-content">
+        <div class="section-header">
+          <span class="section-number">About</span>
+          <h1 class="section-title">A bit about me</h1>
+        </div>
+        <div class="about-content">
           <p>
             I'm a Computer Engineer and AI Application Engineer based in Indonesia.
             I graduated with a degree in <strong>Computer Engineering</strong> from the
@@ -43,16 +46,16 @@ import Footer from '@/components/Footer.astro';
 </BaseLayout>
 
 <style>
-  .page-title {
-    margin-bottom: var(--space-xl);
+  .about-page {
+    padding-top: var(--space-2xl);
   }
 
-  .about-page-content {
-    max-width: 600px;
+  .about-content {
+    max-width: 640px;
   }
 
-  .about-page-content p {
-    color: var(--text-muted);
+  .about-content p {
+    color: var(--text-secondary);
     margin-bottom: var(--space-lg);
     font-size: 1.0625rem;
     line-height: 1.7;

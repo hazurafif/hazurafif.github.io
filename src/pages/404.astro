@@ -4,14 +4,15 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 ---
 
-<BaseLayout title="404 — Not Found">
+<BaseLayout title="404 — Page not found">
   <Header />
   <main>
     <section class="section not-found">
       <div class="container">
-        <h1 class="nf-code">404</h1>
-        <p class="nf-text">Page not found</p>
-        <a href="/" class="btn">Go Home &rarr;</a>
+        <span class="nf-code">404</span>
+        <h1 class="nf-title">Page not found</h1>
+        <p class="nf-text">The page you're looking for doesn't exist or has been moved.</p>
+        <a href="/" class="btn btn-primary">Go Home &rarr;</a>
       </div>
     </section>
   </main>
@@ -21,41 +22,27 @@ import Footer from '@/components/Footer.astro';
 <style>
   .not-found {
     text-align: center;
-    padding-top: var(--space-2xl);
-    padding-bottom: var(--space-2xl);
+    padding-top: var(--space-3xl);
+    padding-bottom: var(--space-3xl);
   }
 
   .nf-code {
-    font-family: var(--font-display);
+    font-family: var(--font-mono);
     font-size: clamp(5rem, 10vw, 8rem);
-    font-weight: 500;
-    color: var(--accent-soft);
+    font-weight: 700;
+    color: var(--accent-light);
     line-height: 1;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .nf-title {
     margin-bottom: var(--space-md);
   }
 
   .nf-text {
-    font-size: 1.125rem;
-    color: var(--text-muted);
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
     margin-bottom: var(--space-xl);
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border-radius: 6px;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    background: var(--accent);
-    color: #fff;
-    border: 1px solid var(--accent);
-    transition: all 0.2s;
-    font-family: var(--font-body);
-  }
-
-  .btn:hover {
-    background: #A06038;
-    border-color: #A06038;
-    color: #fff;
   }
 </style>

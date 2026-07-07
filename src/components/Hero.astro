@@ -4,89 +4,54 @@
 
 <section class="hero">
   <div class="container">
-    <p class="hero-greeting">Hi, I'm</p>
-    <h1 class="hero-name">Hanif Zufar Rafif</h1>
-    <p class="hero-title">Computer Engineer & AI Application Engineer</p>
-    <p class="hero-tagline">
-      I build intelligent automation, scalable AI agents, and robust full-stack applications.
+    <p class="hero-greeting">Hi, my name is</p>
+    <h1 class="hero-name">Hanif Zufar Rafif.</h1>
+    <h2 class="hero-tagline">Computer Engineer & AI Application Engineer.</h2>
+    <p class="hero-desc">
+      I build intelligent automation, scalable AI agents, and robust full-stack applications that bridge backend systems with cutting-edge AI.
     </p>
     <div class="hero-actions">
-      <a href="/#projects" class="btn btn-primary">View Projects</a>
-      <a href="/#contact" class="btn btn-outline">Get in Touch</a>
+      <a href="/#projects" class="btn btn-primary">See my work &rarr;</a>
+      <a href="/#contact" class="btn btn-outline">Get in touch</a>
     </div>
   </div>
 </section>
 
 <style>
   .hero {
-    padding: var(--space-2xl) 0 var(--space-xl);
-    text-align: center;
+    padding: var(--space-3xl) 0 var(--space-2xl);
   }
 
   .hero-greeting {
     font-family: var(--font-mono);
-    font-size: 0.9375rem;
+    font-size: 1rem;
     color: var(--accent);
-    margin-bottom: var(--space-md);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
+    margin-bottom: var(--space-lg);
   }
 
   .hero-name {
-    margin-bottom: var(--space-sm);
-  }
-
-  .hero-title {
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    color: var(--text-muted);
-    margin-bottom: var(--space-lg);
-    line-height: var(--leading-body);
+    color: var(--text);
+    margin-bottom: var(--space-md);
   }
 
   .hero-tagline {
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    max-width: 660px;
+  }
+
+  .hero-desc {
+    color: var(--text-secondary);
     max-width: 540px;
-    margin: 0 auto var(--space-xl);
-    color: var(--text-muted);
-    font-size: 1rem;
+    font-size: 1.0625rem;
+    margin-bottom: var(--space-xl);
+    line-height: 1.7;
   }
 
   .hero-actions {
     display: flex;
     gap: var(--space-md);
-    justify-content: center;
     flex-wrap: wrap;
-  }
-
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.75rem;
-    border-radius: 6px;
-    font-size: 0.9375rem;
-    font-weight: 500;
-    transition: all 0.2s;
-    font-family: var(--font-body);
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-    border: 1px solid var(--accent);
-  }
-
-  .btn-primary:hover {
-    background: #A06038;
-    border-color: #A06038;
-    color: #fff;
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    border: 1px solid var(--border);
-  }
-
-  .btn-outline:hover {
-    border-color: var(--text);
-    color: var(--text);
   }
 </style>

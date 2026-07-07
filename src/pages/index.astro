@@ -23,7 +23,11 @@ projects.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 
     <section id="projects" class="section">
       <div class="container">
-        <h2 class="section-title">Projects</h2>
+        <div class="section-header">
+          <span class="section-number">03.</span>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">Some things I've built</p>
+        </div>
         <div class="projects-grid">
           {projects.map((project) => (
             <ProjectCard project={project} />
