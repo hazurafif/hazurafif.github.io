@@ -4,7 +4,6 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import { GlassCard } from '@/components/ui/glass-card';
 import { CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -45,14 +44,10 @@ const { Content } = await render(project);
             </div>
             <div class="flex gap-3 mt-8 pt-6 border-t border-border/50">
               {project.data.liveUrl && (
-                <Button variant="default" size="lg" as-child>
-                  <a href={project.data.liveUrl} target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>
-                </Button>
+                <a href={project.data.liveUrl} class="btn-link-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>
               )}
               {project.data.repoUrl && (
-                <Button variant="outline" size="lg" as-child>
-                  <a href={project.data.repoUrl} target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>
-                </Button>
+                <a href={project.data.repoUrl} class="btn-link-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>
               )}
             </div>
           </CardContent>
@@ -110,7 +105,48 @@ const { Content } = await render(project);
     margin-bottom: var(--space-md);
   }
 
+  .btn-link-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    text-decoration: none;
+    background: #0066cc;
+    color: #fff;
+    border: 1px solid #0066cc;
+    transition: background 0.2s;
+  }
+
+  .btn-link-primary:hover {
+    background: #0071e3;
+    color: #fff;
+  }
+
+  .btn-link-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    text-decoration: none;
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--hairline);
+    transition: border-color 0.2s;
+  }
+
+  .btn-link-outline:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
   @media (max-width: 480px) {
+    .project-actions,
     .project-content .flex {
       flex-direction: column;
     }

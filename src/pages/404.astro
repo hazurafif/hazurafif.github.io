@@ -4,7 +4,6 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import { GlassCard } from '@/components/ui/glass-card';
 import { CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
 ---
 
 <BaseLayout title="404 — Page not found">
@@ -17,9 +16,7 @@ import { Button } from '@/components/ui/button';
             <p class="text-[clamp(3.5rem,8vw,5rem)] font-bold leading-none text-primary mb-4">404</p>
             <h1 class="mb-3">Page not found</h1>
             <p class="text-muted-foreground mb-6">The page you're looking for doesn't exist or has been moved.</p>
-            <Button variant="default" size="lg" as-child>
-              <a href="/">Go Home &rarr;</a>
-            </Button>
+            <a href="/" class="btn-link-primary-404">Go Home &rarr;</a>
           </CardContent>
         </GlassCard>
       </div>
@@ -34,5 +31,25 @@ import { Button } from '@/components/ui/button';
     display: flex;
     align-items: center;
     padding: 100px 0;
+  }
+
+  .btn-link-primary-404 {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    text-decoration: none;
+    background: #0066cc;
+    color: #fff;
+    border: 1px solid #0066cc;
+    transition: background 0.2s;
+  }
+
+  .btn-link-primary-404:hover {
+    background: #0071e3;
+    color: #fff;
   }
 </style>

@@ -1,5 +1,5 @@
 ---
-import { Button } from '@/components/ui/button';
+
 ---
 
 <section class="hero">
@@ -12,12 +12,8 @@ import { Button } from '@/components/ui/button';
         I build intelligent automation, scalable AI agents, and robust full-stack applications that bridge backend systems with cutting-edge AI.
       </p>
       <div class="hero-actions">
-        <Button variant="default" size="lg" as-child>
-          <a href="/#projects">See my work</a>
-        </Button>
-        <Button variant="outline" size="lg" as-child>
-          <a href="/#contact">Get in touch</a>
-        </Button>
+        <a href="/#projects" class="btn-link btn-primary-link">See my work</a>
+        <a href="/#contact" class="btn-link btn-outline-link">Get in touch</a>
       </div>
     </div>
   </div>
@@ -67,6 +63,41 @@ import { Button } from '@/components/ui/button';
     display: flex;
     gap: var(--space-sm);
     flex-wrap: wrap;
+  }
+
+  .btn-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 10px 20px;
+    border-radius: 9999px;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+
+  .btn-primary-link {
+    background: #0066cc;
+    color: #ffffff;
+    border: 1px solid #0066cc;
+  }
+
+  .btn-primary-link:hover {
+    background: #0071e3;
+    color: #ffffff;
+  }
+
+  .btn-outline-link {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--hairline);
+  }
+
+  .btn-outline-link:hover {
+    border-color: var(--ink);
+    color: var(--ink);
   }
 
   @media (max-width: 768px) {
