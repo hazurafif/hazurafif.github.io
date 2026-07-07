@@ -1,6 +1,5 @@
 ---
-import { GlassCard } from '@/components/ui/glass-card';
-import { CardContent } from '@/components/ui/card';
+
 ---
 
 <section id="about" class="section">
@@ -24,20 +23,16 @@ import { CardContent } from '@/components/ui/card';
         </p>
       </div>
       <div class="about-cards">
-        <GlassCard client:load>
-          <CardContent class="p-6">
-            <p class="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-2">Education</p>
-            <p class="font-semibold text-[15px] mb-0.5">B.Eng Computer Engineering</p>
-            <p class="text-[13px] text-muted-foreground">Universitas Indonesia, 2018</p>
-          </CardContent>
-        </GlassCard>
-        <GlassCard client:load>
-          <CardContent class="p-6">
-            <p class="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-2">Focus</p>
-            <p class="font-semibold text-[15px] mb-0.5">AI Agents & Infrastructure</p>
-            <p class="text-[13px] text-muted-foreground">Backend systems + AI integration</p>
-          </CardContent>
-        </GlassCard>
+        <div class="glass rounded-xl p-6">
+          <p class="text-[11px] font-semibold tracking-widest uppercase text-[var(--ink-muted-light)] mb-2">Education</p>
+          <p class="font-semibold text-[15px] mb-0.5 text-[var(--ink)]">B.Eng Computer Engineering</p>
+          <p class="text-[13px] text-[var(--ink-muted)]">Universitas Indonesia, 2018</p>
+        </div>
+        <div class="glass rounded-xl p-6">
+          <p class="text-[11px] font-semibold tracking-widest uppercase text-[var(--ink-muted-light)] mb-2">Focus</p>
+          <p class="font-semibold text-[15px] mb-0.5 text-[var(--ink)]">AI Agents & Infrastructure</p>
+          <p class="text-[13px] text-[var(--ink-muted)]">Backend systems + AI integration</p>
+        </div>
       </div>
     </div>
   </div>

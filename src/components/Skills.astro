@@ -1,6 +1,4 @@
 ---
-import { GlassCard } from '@/components/ui/glass-card';
-import { CardContent } from '@/components/ui/card';
 
 const skillGroups = [
   {
@@ -20,6 +18,7 @@ const skillGroups = [
     items: ['Zabbix', 'Git'],
   },
 ];
+
 ---
 
 <section id="skills" class="section">
@@ -30,16 +29,14 @@ const skillGroups = [
     </div>
     <div class="skills-grid">
       {skillGroups.map((group) => (
-        <GlassCard client:load>
-          <CardContent class="p-6">
-            <p class="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-4">{group.category}</p>
-            <div class="flex flex-col">
-              {group.items.map((item) => (
-                <p class="text-[15px] py-2 border-b border-border/50 last:border-b-0">{item}</p>
-              ))}
-            </div>
-          </CardContent>
-        </GlassCard>
+        <div class="glass rounded-xl p-6">
+          <p class="text-[11px] font-semibold tracking-widest uppercase text-[var(--ink-muted-light)] mb-4">{group.category}</p>
+          <div class="flex flex-col">
+            {group.items.map((item) => (
+              <p class="text-[15px] py-2 border-b border-[var(--divider-soft)] last:border-b-0">{item}</p>
+            ))}
+          </div>
+        </div>
       ))}
     </div>
   </div>

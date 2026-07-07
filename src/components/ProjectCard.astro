@@ -1,6 +1,4 @@
 ---
-import { GlassCard } from '@/components/ui/glass-card';
-import { CardContent, CardFooter } from '@/components/ui/card';
 import type { CollectionEntry } from 'astro:content';
 
 export interface Props {
@@ -11,26 +9,24 @@ const { project } = Astro.props;
 const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
 ---
 
-<GlassCard class="flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg" client:load>
-  <CardContent class="p-6">
+<article class="glass rounded-xl p-6 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+  <div>
     <p class="text-[1.75rem] mb-4 leading-none">{icon || '📁'}</p>
     <h3 class="mb-2">{title}</h3>
-    <p class="text-[14px] text-muted-foreground leading-relaxed">{description}</p>
-  </CardContent>
-  <div>
-    <div class="px-6 pb-2">
-      <div class="flex flex-wrap gap-1.5">
-        {tags.map((tag) => <span class="tag">{tag}</span>)}
-      </div>
+    <p class="text-[14px] text-[var(--ink-muted)] leading-relaxed">{description}</p>
+  </div>
+  <div class="mt-6">
+    <div class="flex flex-wrap gap-1.5 mb-4">
+      {tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>
     {(repoUrl || liveUrl) && (
-      <CardFooter class="border-t border-border/50 px-6 py-4 bg-transparent">
-        {repoUrl && <a href={repoUrl} class="card-link">Source</a>}
-        {liveUrl && <a href={liveUrl} class="card-link">Live &nearr;</a>}
-      </CardFooter>
+      <div class="flex gap-4 pt-4 border-t border-[var(--divider-soft)]">
+        {repoUrl && <a href={repoUrl} class="text-[14px] font-medium text-[var(--primary)] hover:opacity-70 no-underline" target="_blank" rel="noopener noreferrer">Source</a>}
+        {liveUrl && <a href={liveUrl} class="text-[14px] font-medium text-[var(--primary)] hover:opacity-70 no-underline" target="_blank" rel="noopener noreferrer">Live &nearr;</a>}
+      </div>
     )}
   </div>
-</GlassCard>
+</article>
 
 <style>
   .tag {
@@ -40,17 +36,5 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
     background: var(--canvas-soft);
     padding: 4px 10px;
     border-radius: var(--radius-pill);
-  }
-
-  .card-link {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--primary);
-    text-decoration: none;
-    transition: opacity 0.2s;
-  }
-
-  .card-link:hover {
-    opacity: 0.7;
   }
 </style>

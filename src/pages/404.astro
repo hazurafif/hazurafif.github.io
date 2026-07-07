@@ -2,8 +2,6 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-import { GlassCard } from '@/components/ui/glass-card';
-import { CardContent } from '@/components/ui/card';
 ---
 
 <BaseLayout title="404 — Page not found">
@@ -11,14 +9,12 @@ import { CardContent } from '@/components/ui/card';
   <main>
     <section class="nf-section">
       <div class="container flex justify-center">
-        <GlassCard class="max-w-[440px] text-center" client:load>
-          <CardContent class="p-8">
-            <p class="text-[clamp(3.5rem,8vw,5rem)] font-bold leading-none text-primary mb-4">404</p>
-            <h1 class="mb-3">Page not found</h1>
-            <p class="text-muted-foreground mb-6">The page you're looking for doesn't exist or has been moved.</p>
-            <a href="/" class="btn-link-primary-404">Go Home &rarr;</a>
-          </CardContent>
-        </GlassCard>
+        <div class="glass rounded-xl p-8 max-w-[440px] text-center">
+          <p class="text-[clamp(3.5rem,8vw,5rem)] font-bold leading-none text-[var(--primary)] mb-4">404</p>
+          <h1 class="mb-3">Page not found</h1>
+          <p class="text-[var(--ink-muted)] mb-6">The page you're looking for doesn't exist or has been moved.</p>
+          <a href="/" class="nf-cta">Go Home &rarr;</a>
+        </div>
       </div>
     </section>
   </main>
@@ -33,7 +29,7 @@ import { CardContent } from '@/components/ui/card';
     padding: 100px 0;
   }
 
-  .btn-link-primary-404 {
+  .nf-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -48,7 +44,7 @@ import { CardContent } from '@/components/ui/card';
     transition: background 0.2s;
   }
 
-  .btn-link-primary-404:hover {
+  .nf-cta:hover {
     background: #0071e3;
     color: #fff;
   }

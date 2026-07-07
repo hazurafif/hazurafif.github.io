@@ -2,8 +2,6 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
-import { GlassCard } from '@/components/ui/glass-card';
-import { CardContent } from '@/components/ui/card';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -24,34 +22,28 @@ const { Content } = await render(project);
     <article class="project-page">
       <div class="container">
         <a href="/#projects" class="back-link">&larr; Back</a>
-        <GlassCard class="max-w-[700px]" client:load>
-          <CardContent class="p-8">
-            <header class="mb-8">
-              <h1 class="mb-4">{project.data.title}</h1>
-              <div class="text-[13px] text-muted-foreground mb-4">
-                <time datetime={project.data.pubDate.toISOString()}>
-                  {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
-                </time>
+        <div class="glass rounded-xl p-8 max-w-[700px]">
+          <header class="mb-8">
+            <h1 class="mb-4">{project.data.title}</h1>
+            <div class="text-[13px] text-[var(--ink-muted)] mb-4">
+              <time datetime={project.data.pubDate.toISOString()}>
+                {project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
+              </time>
+            </div>
+            {project.data.tags && (
+              <div class="flex flex-wrap gap-1.5">
+                {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
               </div>
-              {project.data.tags && (
-                <div class="flex flex-wrap gap-1.5">
-                  {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
-                </div>
-              )}
-            </header>
-            <div class="project-content">
-              <Content />
-            </div>
-            <div class="flex gap-3 mt-8 pt-6 border-t border-border/50">
-              {project.data.liveUrl && (
-                <a href={project.data.liveUrl} class="btn-link-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>
-              )}
-              {project.data.repoUrl && (
-                <a href={project.data.repoUrl} class="btn-link-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>
-              )}
-            </div>
-          </CardContent>
-        </GlassCard>
+            )}
+          </header>
+          <div class="project-content">
+            <Content />
+          </div>
+          <div class="flex gap-3 mt-8 pt-6 border-t border-[var(--divider-soft)]">
+            {project.data.liveUrl && <a href={project.data.liveUrl} class="btn-link-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>}
+            {project.data.repoUrl && <a href={project.data.repoUrl} class="btn-link-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>}
+          </div>
+        </div>
       </div>
     </article>
   </main>
@@ -146,7 +138,6 @@ const { Content } = await render(project);
   }
 
   @media (max-width: 480px) {
-    .project-actions,
     .project-content .flex {
       flex-direction: column;
     }
