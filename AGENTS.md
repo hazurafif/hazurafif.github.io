@@ -38,6 +38,14 @@ The `.glass` utility class applies frosted-glass effect:
 ```
 Used via `className="glass"` on shadcn `Card` components.
 
+## Client Directives (Critical)
+All shadcn React components must use a `client:*` directive in `.astro` files:
+- `client:load` — load immediately (for above-fold components)
+- `client:idle` — load when browser is idle
+- `client:visible` — load when visible (for below-fold)
+
+Without a directive, the component renders as static HTML with no JS.
+
 ## Button Pattern
 Do NOT use shadcn `Button` with `as-child` for links — it breaks SSR styling.
 Use plain `<a>` tags with CSS classes instead:
