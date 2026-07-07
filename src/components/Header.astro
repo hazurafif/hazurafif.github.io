@@ -17,9 +17,9 @@ const links = [
       ))}
     </ul>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
-      <span class="hamburger-line"></span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
   </nav>
 </header>
@@ -34,7 +34,7 @@ const links = [
 <style>
   .header {
     position: fixed;
-    top: var(--space-lg);
+    top: 20px;
     left: 0;
     width: 100%;
     display: flex;
@@ -44,23 +44,21 @@ const links = [
   }
 
   .nav-pill {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: var(--space-xl);
-    padding: 0.625rem 1.5rem;
+    gap: 24px;
+    padding: 8px 20px;
     border-radius: 9999px;
     pointer-events: auto;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.06);
   }
 
   .logo {
-    font-family: var(--font-heading);
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 600;
-    letter-spacing: -0.374px;
-    color: var(--foreground);
+    color: var(--ink);
     text-decoration: none;
-    padding-right: var(--space-sm);
+    padding-right: 16px;
     border-right: 1px solid var(--hairline);
   }
 
@@ -71,20 +69,20 @@ const links = [
   .nav-links {
     list-style: none;
     display: flex;
-    gap: var(--space-lg);
+    gap: 20px;
     align-items: center;
   }
 
   .nav-link {
     font-size: 13px;
     font-weight: 500;
-    color: var(--muted-foreground);
+    color: var(--ink-muted-light);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .nav-link:hover {
-    color: var(--foreground);
+    color: var(--ink);
   }
 
   .hamburger {
@@ -94,76 +92,71 @@ const links = [
     background: none;
     border: none;
     cursor: pointer;
-    padding: 2px;
+    padding: 4px;
     z-index: 110;
   }
 
-  .hamburger-line {
+  .hamburger span {
     display: block;
     width: 18px;
     height: 2px;
-    background: var(--foreground);
+    background: var(--ink);
     border-radius: 2px;
     transition: transform 0.3s, opacity 0.3s;
   }
 
-  .hamburger.active .hamburger-line:nth-child(1) {
+  .hamburger.active span:nth-child(1) {
     transform: translateY(6px) rotate(45deg);
   }
 
-  .hamburger.active .hamburger-line:nth-child(2) {
+  .hamburger.active span:nth-child(2) {
     opacity: 0;
   }
 
-  .hamburger.active .hamburger-line:nth-child(3) {
+  .hamburger.active span:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
   }
 
   @media (max-width: 768px) {
     .header {
-      top: var(--space-md);
-      padding: 0 var(--space-md);
+      top: 12px;
+      padding: 0 16px;
     }
 
     .nav-pill {
       width: 100%;
       justify-content: space-between;
-      border-radius: 16px;
-      padding: 0.75rem 1.25rem;
+      border-radius: 14px;
+      padding: 10px 16px;
+    }
+
+    .nav-pill > .nav-links {
+      display: none;
     }
 
     .hamburger {
       display: flex;
     }
 
-    .nav-links {
-      display: none;
+    .nav-links.open {
+      display: flex;
       position: fixed;
-      top: 0;
-      left: 0;
+      inset: 0;
       width: 100%;
       height: 100vh;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(40px);
-      -webkit-backdrop-filter: blur(40px);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: var(--space-xxl);
+      gap: 40px;
       z-index: 105;
     }
 
-    .nav-links.open {
-      display: flex;
-    }
-
-    .nav-link {
+    .nav-links.open .nav-link {
       font-size: 1.25rem;
-      color: var(--foreground);
-    }
-
-    .nav-link:hover {
-      color: var(--primary);
+      color: var(--ink);
     }
   }
 </style>

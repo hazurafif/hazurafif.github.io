@@ -16,13 +16,13 @@ const { project } = Astro.props;
 const { Content } = await render(project);
 ---
 
-<BaseLayout title={`${project.data.title} — Hanif Zufar Rafif`} description={project.data.description}>
+<BaseLayout title={`${project.data.title} — Hanif Zufar Rafif`}>
   <Header />
   <main>
     <article class="project-page">
       <div class="container">
-        <a href="/#projects" class="back-link">&larr; Back to projects</a>
-        <div class="project-detail glass">
+        <a href="/#projects" class="back-link">&larr; Back</a>
+        <div class="project-card glass">
           <header class="project-head">
             <h1 class="project-title">{project.data.title}</h1>
             <div class="project-meta">
@@ -32,7 +32,7 @@ const { Content } = await render(project);
             </div>
             {project.data.tags && (
               <div class="project-tags">
-                {project.data.tags.map((tag) => <span class="tag glass">{tag}</span>)}
+                {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
               </div>
             )}
           </header>
@@ -52,103 +52,86 @@ const { Content } = await render(project);
 
 <style>
   .project-page {
-    padding: 100px 0 var(--space-section);
+    padding: 100px 0 var(--space-xxl);
   }
 
   .back-link {
     display: inline-block;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
-    margin-bottom: var(--space-xl);
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: var(--space-lg);
     text-decoration: none;
-    transition: color 0.2s;
   }
 
   .back-link:hover {
     color: var(--ink);
   }
 
-  .project-detail {
-    border-radius: var(--radius-lg);
-    padding: var(--space-xxl);
-    max-width: 720px;
+  .project-card {
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
+    max-width: 700px;
   }
 
   .project-head {
-    margin-bottom: var(--space-xxl);
+    margin-bottom: var(--space-xl);
   }
 
   .project-title {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 
   .project-meta {
-    margin-bottom: var(--space-lg);
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
+    margin-bottom: var(--space-md);
+    font-size: 13px;
+    color: var(--ink-muted);
   }
 
   .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
+    gap: 6px;
   }
 
   .tag {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.12px;
-    padding: 0.35em 0.8em;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    background: var(--canvas-soft);
+    padding: 4px 10px;
     border-radius: var(--radius-pill);
-    color: var(--ink-muted-48);
   }
 
   .project-content {
-    color: var(--ink-muted-48);
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.6;
+    color: var(--ink-muted);
+    font-size: 15px;
+    line-height: 1.65;
   }
 
   .project-content p {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 
   .project-content h2 {
-    margin-top: var(--space-xxl);
-    margin-bottom: var(--space-lg);
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
     color: var(--ink);
   }
 
   .project-content ul {
-    padding-left: var(--space-xl);
-    margin-bottom: var(--space-lg);
-  }
-
-  .project-content li {
-    margin-bottom: var(--space-sm);
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-md);
   }
 
   .project-actions {
     display: flex;
-    gap: var(--space-lg);
-    margin-top: var(--space-xxl);
-    padding-top: var(--space-xl);
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-lg);
     border-top: 1px solid var(--divider-soft);
   }
 
   @media (max-width: 480px) {
-    .project-detail {
-      padding: var(--space-xl);
-    }
-
     .project-actions {
       flex-direction: column;
     }

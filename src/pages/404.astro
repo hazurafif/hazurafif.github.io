@@ -11,7 +11,7 @@ import Footer from '@/components/Footer.astro';
       <div class="container">
         <div class="nf-card glass">
           <p class="nf-code">404</p>
-          <h1 class="nf-title">Page not found</h1>
+          <h1>Page not found</h1>
           <p class="nf-text">The page you're looking for doesn't exist or has been moved.</p>
           <a href="/" class="btn btn-primary">Go Home &rarr;</a>
         </div>
@@ -30,32 +30,23 @@ import Footer from '@/components/Footer.astro';
   }
 
   .nf-card {
-    max-width: 480px;
+    max-width: 440px;
     margin: 0 auto;
     text-align: center;
-    border-radius: var(--radius-lg);
-    padding: var(--space-xxl);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
   }
 
   .nf-code {
-    font-size: clamp(4rem, 10vw, 6rem);
-    font-weight: 600;
-    line-height: 1.07;
-    letter-spacing: -0.28px;
+    font-size: clamp(3.5rem, 8vw, 5rem);
+    font-weight: 700;
     color: var(--primary);
-    margin-bottom: var(--space-lg);
-  }
-
-  .nf-title {
+    line-height: 1;
     margin-bottom: var(--space-md);
   }
 
   .nf-text {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.47;
-    letter-spacing: -0.374px;
-    color: var(--ink-muted-48);
-    margin-bottom: var(--space-xl);
+    color: var(--ink-muted);
+    margin: var(--space-md) 0 var(--space-xl);
   }
 </style>

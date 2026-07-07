@@ -10,14 +10,14 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
 ---
 
 <article class="project-card glass">
-  <div class="card-body">
+  <div>
     <p class="card-icon">{icon || '📁'}</p>
     <h3 class="card-title">{title}</h3>
     <p class="card-desc">{description}</p>
   </div>
   <div class="card-footer">
     <div class="card-tags">
-      {tags.map((tag) => <span class="tag glass">{tag}</span>)}
+      {tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>
     {(repoUrl || liveUrl) && (
       <div class="card-links">
@@ -30,84 +30,69 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
 
 <style>
   .project-card {
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     padding: var(--space-xl);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.25s, box-shadow 0.25s;
   }
 
   .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
   }
 
   .card-icon {
-    font-size: 2rem;
-    margin-bottom: var(--space-lg);
+    font-size: 1.75rem;
+    margin-bottom: var(--space-md);
     line-height: 1;
   }
 
   .card-title {
-    font-weight: 600;
-    font-size: clamp(1.125rem, 2vw, 1.375rem);
-    line-height: 1.19;
-    letter-spacing: 0.231px;
     margin-bottom: var(--space-sm);
   }
 
   .card-desc {
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.5;
-    color: var(--ink-muted-48);
+    font-size: 14px;
+    color: var(--ink-muted);
+    line-height: 1.55;
   }
 
   .card-footer {
-    margin-top: var(--space-xl);
+    margin-top: var(--space-lg);
   }
 
   .card-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-bottom: var(--space-lg);
+    gap: 6px;
+    margin-bottom: var(--space-md);
   }
 
   .tag {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.12px;
-    padding: 0.35em 0.8em;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    background: var(--canvas-soft);
+    padding: 4px 10px;
     border-radius: var(--radius-pill);
-    color: var(--ink-muted-48);
   }
 
   .card-links {
     display: flex;
-    gap: var(--space-xl);
+    gap: var(--space-lg);
     padding-top: var(--space-md);
     border-top: 1px solid var(--divider-soft);
   }
 
   .card-link {
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: -0.374px;
+    font-size: 14px;
+    font-weight: 500;
     color: var(--primary);
-    transition: opacity 0.2s;
   }
 
   .card-link:hover {
     opacity: 0.7;
-    color: var(--primary);
-  }
-
-  @media (max-width: 480px) {
-    .project-card {
-      padding: var(--space-lg);
-    }
   }
 </style>

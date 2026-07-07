@@ -25,7 +25,7 @@ const skillGroups = [
   <div class="container">
     <div class="section-header">
       <p class="section-number">Skills</p>
-      <h2 class="section-title">Technologies I work with.</h2>
+      <h2>Technologies I work with.</h2>
     </div>
     <div class="skills-grid">
       {skillGroups.map((group) => (
@@ -43,20 +43,10 @@ const skillGroups = [
 </section>
 
 <style>
-  .section-number {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
-    margin-bottom: var(--space-sm);
-    text-transform: uppercase;
-  }
-
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 
   @media (max-width: 640px) {
@@ -66,18 +56,17 @@ const skillGroups = [
   }
 
   .skill-group {
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     padding: var(--space-xl);
   }
 
   .skill-category {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.12px;
-    color: var(--ink-muted-48);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-muted-light);
     text-transform: uppercase;
-    margin-bottom: var(--space-lg);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-md);
   }
 
   .skill-items {
@@ -86,10 +75,7 @@ const skillGroups = [
   }
 
   .skill-item {
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.47;
-    letter-spacing: -0.374px;
+    font-size: 15px;
     padding: var(--space-sm) 0;
     border-bottom: 1px solid var(--divider-soft);
   }

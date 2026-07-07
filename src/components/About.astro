@@ -6,7 +6,7 @@
   <div class="container">
     <div class="section-header">
       <p class="section-number">About</p>
-      <h2 class="section-title">A foundation in hardware-software integration, applied to AI.</h2>
+      <h2>A foundation in hardware-software integration, applied to AI.</h2>
     </div>
     <div class="about-grid">
       <div class="about-text">
@@ -41,8 +41,8 @@
 <style>
   .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xxl);
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-xl);
     align-items: start;
   }
 
@@ -52,23 +52,10 @@
     }
   }
 
-  .section-number {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
-    margin-bottom: var(--space-sm);
-    text-transform: uppercase;
-  }
-
   .about-text p {
-    color: var(--ink-muted-48);
-    margin-bottom: var(--space-lg);
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.47;
-    letter-spacing: -0.374px;
+    color: var(--ink-muted);
+    margin-bottom: var(--space-md);
+    line-height: 1.65;
   }
 
   .about-text strong {
@@ -79,36 +66,31 @@
   .about-cards {
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
+    gap: var(--space-md);
   }
 
   .about-card {
-    border-radius: var(--radius-lg);
-    padding: var(--space-xl);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
   }
 
   .card-label {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.12px;
-    color: var(--ink-muted-48);
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--ink-muted-light);
     text-transform: uppercase;
-    margin-bottom: var(--space-xs);
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-sm);
   }
 
   .card-value {
     font-weight: 600;
-    font-size: 17px;
-    letter-spacing: -0.374px;
-    margin-bottom: var(--space-xxs);
+    font-size: 15px;
+    margin-bottom: 2px;
   }
 
   .card-sub {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
+    font-size: 13px;
+    color: var(--ink-muted);
   }
 </style>

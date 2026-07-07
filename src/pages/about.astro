@@ -4,16 +4,16 @@ import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 ---
 
-<BaseLayout title="About — Hanif Zufar Rafif" description="Learn more about Hanif Zufar Rafif, a Computer Engineer and AI Application Engineer.">
+<BaseLayout title="About — Hanif Zufar Rafif">
   <Header />
   <main>
     <section class="section about-page">
       <div class="container">
         <div class="section-header">
           <p class="section-number">About</p>
-          <h1 class="section-title">A bit about me.</h1>
+          <h1>A bit about me.</h1>
         </div>
-        <div class="about-content glass">
+        <div class="about-card glass">
           <p>
             I'm a Computer Engineer and AI Application Engineer based in Indonesia.
             I graduated with a degree in <strong>Computer Engineering</strong> from the
@@ -29,12 +29,7 @@ import Footer from '@/components/Footer.astro';
             production at scale.
           </p>
           <p>
-            I'm passionate about the intersection of backend engineering and AI — whether
-            that's building robust APIs in Go, designing RBAC systems, or automating
-            complex monitoring workflows with Zabbix. I believe great software is built
-            at the intersection of clean architecture and thoughtful user experience.
-          </p>
-          <p>
+            I'm passionate about the intersection of backend engineering and AI.
             Outside of work, I'm always exploring new tools, reading about distributed
             systems, and thinking about how AI will reshape the way we build software.
           </p>
@@ -46,36 +41,23 @@ import Footer from '@/components/Footer.astro';
 </BaseLayout>
 
 <style>
-  .section-number {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
-    margin-bottom: var(--space-sm);
-    text-transform: uppercase;
-  }
-
   .about-page {
     padding-top: 100px;
   }
 
-  .about-content {
+  .about-card {
     max-width: 680px;
-    border-radius: var(--radius-lg);
-    padding: var(--space-xxl);
+    border-radius: var(--radius-md);
+    padding: var(--space-xl);
   }
 
-  .about-content p {
-    color: var(--ink-muted-48);
-    margin-bottom: var(--space-lg);
-    font-size: 17px;
-    font-weight: 400;
-    line-height: 1.47;
-    letter-spacing: -0.374px;
+  .about-card p {
+    color: var(--ink-muted);
+    margin-bottom: var(--space-md);
+    line-height: 1.65;
   }
 
-  .about-content strong {
+  .about-card strong {
     font-weight: 600;
     color: var(--ink);
   }

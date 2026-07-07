@@ -6,11 +6,11 @@
   <div class="container">
     <div class="section-header">
       <p class="section-number">Experience</p>
-      <h2 class="section-title">Currently building AI systems in production.</h2>
+      <h2>Currently building AI systems in production.</h2>
     </div>
     <div class="exp-card glass">
       <div class="exp-head">
-        <h3 class="exp-role">AI Application Engineer</h3>
+        <h3>AI Application Engineer</h3>
         <p class="exp-meta">Full-Time &middot; June 2023 – Present</p>
       </div>
       <ul class="exp-items">
@@ -28,68 +28,50 @@
         </li>
       </ul>
       <div class="exp-tags">
-        <span class="tag glass">Go</span>
-        <span class="tag glass">Python</span>
-        <span class="tag glass">AI Agents</span>
-        <span class="tag glass">Zabbix</span>
-        <span class="tag glass">Full-Stack</span>
+        <span class="tag">Go</span>
+        <span class="tag">Python</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">Zabbix</span>
+        <span class="tag">Full-Stack</span>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .section-number {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
-    margin-bottom: var(--space-sm);
-    text-transform: uppercase;
-  }
-
   .exp-card {
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-md);
     padding: var(--space-xl);
-    max-width: 680px;
+    max-width: 700px;
   }
 
   .exp-head {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
   }
 
-  .exp-role {
-    font-weight: 600;
-    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-    line-height: 1.19;
-    letter-spacing: 0.231px;
-    margin-bottom: var(--space-xxs);
+  .exp-head h3 {
+    margin-bottom: 2px;
   }
 
   .exp-meta {
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.43;
-    letter-spacing: -0.224px;
-    color: var(--ink-muted-48);
+    font-size: 13px;
+    color: var(--ink-muted);
   }
 
   .exp-items {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-lg);
-    margin-bottom: var(--space-xl);
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
 
   .exp-items li {
     display: flex;
     gap: var(--space-sm);
-    color: var(--ink-muted-48);
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1.5;
+    color: var(--ink-muted);
+    font-size: 14px;
+    line-height: 1.55;
   }
 
   .exp-items strong {
@@ -99,26 +81,25 @@
 
   .exp-dot {
     flex-shrink: 0;
-    width: 6px;
-    height: 6px;
+    width: 5px;
+    height: 5px;
     border-radius: 50%;
     background: var(--primary);
-    margin-top: 0.55em;
+    margin-top: 0.5em;
   }
 
   .exp-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
+    gap: 6px;
   }
 
   .tag {
-    font-size: 12px;
-    font-weight: 400;
-    line-height: 1;
-    letter-spacing: -0.12px;
-    padding: 0.35em 0.8em;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--ink-muted);
+    background: var(--canvas-soft);
+    padding: 4px 10px;
     border-radius: var(--radius-pill);
-    color: var(--ink-muted-48);
   }
 </style>
