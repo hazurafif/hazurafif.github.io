@@ -19,9 +19,11 @@ const { Content } = await render(project);
 <BaseLayout title={`${project.data.title} — Hanif Zufar Rafif`} description={project.data.description}>
   <Header />
   <main>
-    <article class="section project-page">
+    <article class="project-page">
       <div class="container">
-        <a href="/#projects" class="back-link">&larr; Back</a>
+        <div class="project-back">
+          <a href="/#projects" class="back-link">&larr; Back to projects</a>
+        </div>
         <header class="project-head">
           <h1 class="project-title">{project.data.title}</h1>
           <div class="project-meta">
@@ -38,9 +40,9 @@ const { Content } = await render(project);
         <div class="project-content">
           <Content />
         </div>
-        <div class="project-links">
-          {project.data.liveUrl && <a href={project.data.liveUrl} class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>}
-          {project.data.repoUrl && <a href={project.data.repoUrl} class="btn btn-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>}
+        <div class="project-actions">
+          {project.data.liveUrl && <a href={project.data.liveUrl} class="btn-primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>}
+          {project.data.repoUrl && <a href={project.data.repoUrl} class="btn-outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>}
         </div>
       </div>
     </article>
@@ -50,36 +52,43 @@ const { Content } = await render(project);
 
 <style>
   .project-page {
-    padding-top: var(--space-2xl);
+    padding: 120px 0 var(--space-huge);
+  }
+
+  .project-back {
+    margin-bottom: var(--space-xxl);
   }
 
   .back-link {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
+    font-size: 14px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    line-height: 1.4;
+    color: var(--ink-mute);
+    text-decoration: none;
     transition: color 0.2s;
   }
 
   .back-link:hover {
-    color: var(--accent);
+    color: var(--ink);
   }
 
   .project-head {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-xxl);
     max-width: 680px;
   }
 
   .project-title {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-lg);
   }
 
   .project-meta {
-    margin-bottom: var(--space-md);
-    font-family: var(--font-mono);
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    margin-bottom: var(--space-lg);
+    font-size: 14px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    line-height: 1.4;
+    color: var(--ink-mute);
   }
 
   .project-tags {
@@ -89,53 +98,101 @@ const { Content } = await render(project);
   }
 
   .tag {
-    font-size: 0.75rem;
-    font-family: var(--font-mono);
-    color: var(--accent);
-    background: var(--accent-light);
-    padding: 0.25em 0.7em;
-    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 540;
+    font-variation-settings: 'wght' 540;
+    line-height: 1.4;
+    color: var(--ink-mute);
+    background: var(--canvas-soft);
+    padding: 0.3em 0.7em;
+    border-radius: var(--radius-xs);
   }
 
   .project-content {
     max-width: 680px;
-    color: var(--text-secondary);
-    line-height: 1.7;
-    font-size: 1rem;
+    color: var(--ink-mute);
+    font-size: 16px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    line-height: 1.5;
   }
 
   .project-content p {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
 
   .project-content h2 {
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-md);
-    font-size: 1.5rem;
-    color: var(--text);
+    margin-top: var(--space-xxl);
+    margin-bottom: var(--space-lg);
+    color: var(--ink);
   }
 
   .project-content ul {
-    padding-left: var(--space-lg);
-    margin-bottom: var(--space-md);
+    padding-left: var(--space-xl);
+    margin-bottom: var(--space-lg);
   }
 
   .project-content li {
     margin-bottom: var(--space-sm);
   }
 
-  .project-links {
+  .project-actions {
     display: flex;
-    gap: var(--space-md);
-    margin-top: var(--space-xl);
-    padding-top: var(--space-xl);
-    border-top: 1px solid var(--border);
+    gap: var(--space-lg);
+    margin-top: var(--space-xxl);
+    padding-top: var(--space-xxl);
+    border-top: 1px solid var(--hairline);
     max-width: 680px;
   }
 
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    font-variation-settings: 'wght' 700;
+    line-height: 1;
+    color: var(--on-primary);
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-deep);
+    color: var(--on-primary);
+  }
+
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    font-variation-settings: 'wght' 700;
+    line-height: 1;
+    color: var(--ink);
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--ink);
+  }
+
   @media (max-width: 480px) {
-    .project-links {
+    .project-actions {
       flex-direction: column;
+    }
+
+    .project-page {
+      padding-top: 100px;
     }
   }
 </style>

@@ -10,8 +10,8 @@ import Footer from '@/components/Footer.astro';
     <section class="section about-page">
       <div class="container">
         <div class="section-header">
-          <span class="section-number">About</span>
-          <h1 class="section-title">A bit about me</h1>
+          <p class="section-number">About</p>
+          <h1 class="section-title">A bit about me.</h1>
         </div>
         <div class="about-content">
           <p>
@@ -46,8 +46,18 @@ import Footer from '@/components/Footer.astro';
 </BaseLayout>
 
 <style>
+  .section-number {
+    font-size: 14px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    color: var(--ink-mute);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
   .about-page {
-    padding-top: var(--space-2xl);
+    padding-top: 120px;
   }
 
   .about-content {
@@ -55,15 +65,18 @@ import Footer from '@/components/Footer.astro';
   }
 
   .about-content p {
-    color: var(--text-secondary);
-    margin-bottom: var(--space-lg);
-    font-size: 1.0625rem;
-    line-height: 1.7;
+    color: var(--ink-mute);
+    margin-bottom: var(--space-xl);
+    font-size: 18px;
+    font-weight: 540;
+    font-variation-settings: 'wght' 540;
+    line-height: 1.5;
+    letter-spacing: -0.135px;
   }
 
-  @media (max-width: 480px) {
-    .about-content p {
-      font-size: 1rem;
-    }
+  .about-content strong {
+    font-weight: 600;
+    font-variation-settings: 'wght' 600;
+    color: var(--ink);
   }
 </style>

@@ -24,9 +24,8 @@ projects.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
     <section id="projects" class="section">
       <div class="container">
         <div class="section-header">
-          <span class="section-number">03.</span>
-          <h2 class="section-title">Projects</h2>
-          <p class="section-subtitle">Some things I've built</p>
+          <p class="section-number">03 &mdash; Projects</p>
+          <h2 class="section-title">Some things I've built.</h2>
         </div>
         <div class="projects-grid">
           {projects.map((project) => (
@@ -43,6 +42,16 @@ projects.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 </BaseLayout>
 
 <style>
+  .section-number {
+    font-size: 14px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    color: var(--ink-mute);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
   .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));

@@ -24,16 +24,16 @@ const skillGroups = [
 <section id="skills" class="section">
   <div class="container">
     <div class="section-header">
-      <span class="section-number">04.</span>
-      <h2 class="section-title">Skills</h2>
+      <p class="section-number">04 &mdash; Skills</p>
+      <h2 class="section-title">Technologies I work with.</h2>
     </div>
     <div class="skills-grid">
       {skillGroups.map((group) => (
         <div class="skill-group">
-          <h3 class="skill-category">{group.category}</h3>
+          <p class="skill-category">{group.category}</p>
           <div class="skill-items">
             {group.items.map((item) => (
-              <span class="skill-item">{item}</span>
+              <p class="skill-item">{item}</p>
             ))}
           </div>
         </div>
@@ -43,6 +43,16 @@ const skillGroups = [
 </section>
 
 <style>
+  .section-number {
+    font-size: 14px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    color: var(--ink-mute);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
   .skills-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -56,33 +66,36 @@ const skillGroups = [
   }
 
   .skill-group {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: var(--space-xl);
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xxl);
   }
 
   .skill-category {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
+    font-size: 12px;
+    font-weight: 540;
+    font-variation-settings: 'wght' 540;
+    line-height: 1.4;
+    color: var(--ink-mute);
     text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    margin-bottom: var(--space-md);
+    letter-spacing: 0;
+    margin-bottom: var(--space-lg);
   }
 
   .skill-items {
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
   }
 
   .skill-item {
-    display: block;
-    font-size: 0.9375rem;
-    color: var(--text);
-    padding: 0.4rem 0;
-    border-bottom: 1px solid var(--border);
+    font-size: 16px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    line-height: 1.5;
+    color: var(--ink);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--hairline);
   }
 
   .skill-item:last-child {

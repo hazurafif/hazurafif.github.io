@@ -5,27 +5,25 @@
 <section id="experience" class="section">
   <div class="container">
     <div class="section-header">
-      <span class="section-number">02.</span>
-      <h2 class="section-title">Experience</h2>
+      <p class="section-number">02 &mdash; Experience</p>
+      <h2 class="section-title">Currently building AI systems in production.</h2>
     </div>
     <div class="experience-card">
       <div class="exp-head">
-        <div>
-          <h3>AI Application Engineer</h3>
-          <p class="exp-meta">Full-Time &middot; June 2023 – Present</p>
-        </div>
+        <h3 class="exp-role">AI Application Engineer</h3>
+        <p class="exp-meta">Full-Time &middot; June 2023 – Present</p>
       </div>
       <ul class="exp-items">
         <li>
-          <span class="exp-bullet"></span>
+          <span class="exp-dot"></span>
           <span><strong>AI Agents & Chat Ecosystems:</strong> Design, develop, and deploy intelligent AI agents and conversational applications tailored to solve complex user needs.</span>
         </li>
         <li>
-          <span class="exp-bullet"></span>
+          <span class="exp-dot"></span>
           <span><strong>Infrastructure Automation:</strong> Architected and developed Zabbix automation tools to streamline system monitoring, alerting, and operational efficiency.</span>
         </li>
         <li>
-          <span class="exp-bullet"></span>
+          <span class="exp-dot"></span>
           <span><strong>Full-Stack Implementation:</strong> Build and maintain the end-to-end architecture required to support high-performance AI models in production.</span>
         </li>
       </ul>
@@ -41,51 +39,74 @@
 </section>
 
 <style>
+  .section-number {
+    font-size: 14px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    color: var(--ink-mute);
+    margin-bottom: var(--space-sm);
+    text-transform: uppercase;
+    letter-spacing: 0;
+  }
+
   .experience-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: var(--space-xl);
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xxl);
     max-width: 680px;
   }
 
   .exp-head {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
-  .exp-head h3 {
-    font-weight: 700;
-    margin-bottom: var(--space-xs);
+  .exp-role {
+    font-weight: 540;
+    font-size: 1.75rem;
+    line-height: 1.14;
+    letter-spacing: -0.63px;
+    margin-bottom: var(--space-sm);
   }
 
   .exp-meta {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    line-height: 1.4;
+    color: var(--ink-mute);
   }
 
   .exp-items {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
-    margin-bottom: var(--space-lg);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
   .exp-items li {
     display: flex;
     gap: var(--space-md);
-    color: var(--text-secondary);
-    font-size: 0.9375rem;
-    line-height: 1.6;
+    color: var(--ink-mute);
+    font-size: 16px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    line-height: 1.5;
   }
 
-  .exp-bullet {
+  .exp-items strong {
+    font-weight: 600;
+    font-variation-settings: 'wght' 600;
+    color: var(--ink);
+  }
+
+  .exp-dot {
     flex-shrink: 0;
     width: 6px;
     height: 6px;
     border-radius: 50%;
-    background: var(--accent);
+    background: var(--ink-faint);
     margin-top: 0.6em;
   }
 
@@ -96,17 +117,19 @@
   }
 
   .tag {
-    font-size: 0.75rem;
-    font-family: var(--font-mono);
-    color: var(--accent);
-    background: var(--accent-light);
-    padding: 0.25em 0.7em;
-    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 540;
+    font-variation-settings: 'wght' 540;
+    line-height: 1.4;
+    color: var(--ink-mute);
+    background: var(--canvas-soft);
+    padding: 0.3em 0.7em;
+    border-radius: var(--radius-xs);
   }
 
   @media (max-width: 480px) {
     .experience-card {
-      padding: var(--space-lg);
+      padding: var(--space-xl);
     }
   }
 </style>

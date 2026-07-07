@@ -11,97 +11,108 @@ const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
 
 <article class="project-card">
   <div class="card-body">
-    <div class="card-icon">{icon || '📁'}</div>
+    <p class="card-icon">{icon || '📁'}</p>
     <h3 class="card-title">{title}</h3>
     <p class="card-desc">{description}</p>
+  </div>
+  <div class="card-footer">
     <div class="card-tags">
       {tags.map((tag) => <span class="tag">{tag}</span>)}
     </div>
-  </div>
-  <div class="card-links">
-    {repoUrl && <a href={repoUrl} class="card-link" target="_blank" rel="noopener noreferrer">Source</a>}
-    {liveUrl && <a href={liveUrl} class="card-link" target="_blank" rel="noopener noreferrer">Live &nearr;</a>}
+    {(repoUrl || liveUrl) && (
+      <div class="card-links">
+        {repoUrl && <a href={repoUrl} class="card-link" target="_blank" rel="noopener noreferrer">Source</a>}
+        {liveUrl && <a href={liveUrl} class="card-link" target="_blank" rel="noopener noreferrer">Live &nearr;</a>}
+      </div>
+    )}
   </div>
 </article>
 
 <style>
   .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: var(--space-xl);
+    background: var(--canvas);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xxl);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    transition: border-color 0.2s, transform 0.2s;
   }
 
   .project-card:hover {
-    border-color: var(--accent);
+    border-color: var(--ink-faint);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   }
 
   .card-icon {
     font-size: 2rem;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
     line-height: 1;
   }
 
   .card-title {
-    font-weight: 600;
-    margin-bottom: var(--space-sm);
-    font-size: 1.2rem;
+    font-weight: 540;
+    font-size: 1.375rem;
+    line-height: 1.14;
+    letter-spacing: -0.63px;
+    margin-bottom: var(--space-md);
   }
 
   .card-desc {
-    font-size: 0.9375rem;
-    color: var(--text-secondary);
-    line-height: 1.6;
-    margin-bottom: var(--space-md);
+    font-size: 16px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    line-height: 1.5;
+    color: var(--ink-mute);
+  }
+
+  .card-footer {
+    margin-top: var(--space-xl);
   }
 
   .card-tags {
     display: flex;
     flex-wrap: wrap;
     gap: var(--space-sm);
+    margin-bottom: var(--space-lg);
   }
 
   .tag {
-    font-size: 0.75rem;
-    font-family: var(--font-mono);
-    color: var(--accent);
-    background: var(--accent-light);
-    padding: 0.25em 0.7em;
-    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 540;
+    font-variation-settings: 'wght' 540;
+    line-height: 1.4;
+    color: var(--ink-mute);
+    background: var(--canvas-soft);
+    padding: 0.3em 0.7em;
+    border-radius: var(--radius-xs);
   }
 
   .card-links {
     display: flex;
-    gap: var(--space-md);
-    margin-top: var(--space-lg);
+    gap: var(--space-xl);
     padding-top: var(--space-md);
-    border-top: 1px solid var(--border);
+    border-top: 1px solid var(--hairline);
   }
 
   .card-link {
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    font-size: 16px;
+    font-weight: 600;
+    font-variation-settings: 'wght' 600;
+    color: var(--ink);
+    text-decoration: underline;
+    text-underline-offset: 2px;
     transition: color 0.2s;
   }
 
   .card-link:hover {
-    color: var(--accent);
+    color: var(--primary);
   }
 
   @media (max-width: 480px) {
     .project-card {
-      padding: var(--space-lg);
-    }
-
-    .card-title {
-      font-size: 1.0625rem;
+      padding: var(--space-xl);
     }
   }
 </style>

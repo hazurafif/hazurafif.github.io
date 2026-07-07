@@ -7,12 +7,12 @@ import Footer from '@/components/Footer.astro';
 <BaseLayout title="404 — Page not found">
   <Header />
   <main>
-    <section class="section not-found">
+    <section class="not-found">
       <div class="container">
-        <span class="nf-code">404</span>
+        <p class="nf-code">404</p>
         <h1 class="nf-title">Page not found</h1>
         <p class="nf-text">The page you're looking for doesn't exist or has been moved.</p>
-        <a href="/" class="btn btn-primary">Go Home &rarr;</a>
+        <a href="/" class="nf-cta">Go Home &rarr;</a>
       </div>
     </section>
   </main>
@@ -21,28 +21,53 @@ import Footer from '@/components/Footer.astro';
 
 <style>
   .not-found {
+    padding: 120px 0 var(--space-huge);
     text-align: center;
-    padding-top: var(--space-3xl);
-    padding-bottom: var(--space-3xl);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
   }
 
   .nf-code {
-    font-family: var(--font-mono);
     font-size: clamp(5rem, 10vw, 8rem);
-    font-weight: 700;
-    color: var(--accent-light);
-    line-height: 1;
-    display: block;
-    margin-bottom: var(--space-md);
+    font-weight: 540;
+    font-variation-settings: 'wght' 540;
+    line-height: 0.96;
+    color: var(--hairline);
+    margin-bottom: var(--space-lg);
   }
 
   .nf-title {
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
   }
 
   .nf-text {
-    font-size: 1.0625rem;
-    color: var(--text-secondary);
-    margin-bottom: var(--space-xl);
+    font-size: 16px;
+    font-weight: 460;
+    font-variation-settings: 'wght' 460;
+    line-height: 1.5;
+    color: var(--ink-mute);
+    margin-bottom: var(--space-xxl);
+  }
+
+  .nf-cta {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 20px;
+    font-size: 16px;
+    font-weight: 700;
+    font-variation-settings: 'wght' 700;
+    line-height: 1;
+    color: var(--on-primary);
+    background: var(--primary);
+    border: none;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+
+  .nf-cta:hover {
+    background: var(--primary-deep);
+    color: var(--on-primary);
   }
 </style>
