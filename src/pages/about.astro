@@ -1,0 +1,60 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+---
+
+<BaseLayout title="About — Hanif Zufar Rafif" description="Learn more about Hanif Zufar Rafif, a Computer Engineer & AI Application Engineer.">
+  <Header />
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page-title">About Me</h1>
+        <div class="about-page-content">
+          <p>
+            I'm a Computer Engineer and AI Application Engineer based in Indonesia.
+            I graduated with a degree in <strong>Computer Engineering</strong> from the
+            <strong>University of Indonesia</strong> (Class of 2018), where I built a
+            strong foundation in both hardware-software integration and software engineering
+            principles.
+          </p>
+          <p>
+            Today, I specialize in bridging the gap between core backend systems and
+            cutting-edge Artificial Intelligence. My work spans designing intelligent
+            AI agents and conversational applications, architecting infrastructure
+            automation tools, and building end-to-end systems that put AI models into
+            production at scale.
+          </p>
+          <p>
+            I'm passionate about the intersection of backend engineering and AI — whether
+            that's building robust APIs in Go, designing RBAC systems, or automating
+            complex monitoring workflows with Zabbix. I believe great software is built
+            at the intersection of clean architecture and thoughtful user experience.
+          </p>
+          <p>
+            Outside of work, I'm always exploring new tools, reading about distributed
+            systems, and thinking about how AI will reshape the way we build software.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .page-title {
+    margin-bottom: var(--space-xl);
+  }
+
+  .about-page-content {
+    max-width: 600px;
+  }
+
+  .about-page-content p {
+    color: var(--text-muted);
+    margin-bottom: var(--space-lg);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+  }
+</style>

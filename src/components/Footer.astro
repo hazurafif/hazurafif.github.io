@@ -1,0 +1,36 @@
+---
+
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container-wide footer-inner">
+    <span class="footer-copy">&copy; {year} Hanif Zufar Rafif</span>
+    <span class="footer-tagline">Built with Astro</span>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-xl) 0;
+    border-top: 1px solid var(--border);
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .footer-tagline {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+  }
+</style>

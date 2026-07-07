@@ -1,0 +1,150 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects');
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout title={`${project.data.title} — Hanif Zufar Rafif`} description={project.data.description}>
+  <Header />
+  <main>
+    <article class="section">
+      <div class="container project-article">
+        <a href="/#projects" class="back-link">&larr; Back to Projects</a>
+        <header class="project-header">
+          <h1 class="project-title">{project.data.title}</h1>
+          <div class="project-meta">
+            <span class="project-date">{project.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}</span>
+          </div>
+          {project.data.tags && (
+            <div class="project-tags">
+              {project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+            </div>
+          )}
+        </header>
+        <div class="project-content">
+          <Content />
+        </div>
+        <div class="project-footer-links">
+          {project.data.liveUrl && <a href={project.data.liveUrl} class="btn" target="_blank" rel="noopener noreferrer">Live Site &rarr;</a>}
+          {project.data.repoUrl && <a href={project.data.repoUrl} class="btn btn-outline" target="_blank" rel="noopener noreferrer">Source Code &rarr;</a>}
+        </div>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style>
+  .project-article {
+    max-width: var(--max-width);
+  }
+
+  .back-link {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-bottom: var(--space-xl);
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .project-header {
+    margin-bottom: var(--space-xl);
+  }
+
+  .project-title {
+    margin-bottom: var(--space-sm);
+  }
+
+  .project-meta {
+    margin-bottom: var(--space-md);
+  }
+
+  .project-date {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+  }
+
+  .project-content {
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 1rem;
+  }
+
+  .project-content p {
+    margin-bottom: var(--space-md);
+  }
+
+  .project-footer-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-xl);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 6px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+  }
+
+  .btn {
+    background: var(--accent);
+    color: #fff;
+    border: 1px solid var(--accent);
+  }
+
+  .btn:hover {
+    background: #A06038;
+    border-color: #A06038;
+    color: #fff;
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--text);
+    color: var(--text);
+  }
+</style>

@@ -1,0 +1,108 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+export interface Props {
+  project: CollectionEntry<'projects'>;
+}
+
+const { project } = Astro.props;
+const { title, description, icon, tags, liveUrl, repoUrl } = project.data;
+---
+
+<article class="project-card">
+  <div class="project-body">
+    <div class="project-header">
+      {icon && <span class="project-icon">{icon}</span>}
+      <h3 class="project-title">{title}</h3>
+    </div>
+    <p class="project-desc">{description}</p>
+    <div class="project-tags">
+      {tags.map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+  </div>
+  {(liveUrl || repoUrl) && (
+    <div class="project-links">
+      {liveUrl && <a href={liveUrl} class="project-link" target="_blank" rel="noopener noreferrer">Live &rarr;</a>}
+      {repoUrl && <a href={repoUrl} class="project-link" target="_blank" rel="noopener noreferrer">Source &rarr;</a>}
+    </div>
+  )}
+</article>
+
+<style>
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .project-card:hover {
+    border-color: var(--accent-soft);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  }
+
+  .project-body {
+    flex: 1;
+  }
+
+  .project-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-md);
+  }
+
+  .project-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+  }
+
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+  }
+
+  .project-desc {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 0.2em 0.6em;
+    border-radius: 4px;
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--border);
+  }
+
+  .project-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--accent);
+  }
+
+  .project-link:hover {
+    color: #A06038;
+  }
+</style>
