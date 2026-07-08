@@ -2,6 +2,8 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
+import { Button } from "@/components/starwind/button";
+import { Badge } from "@/components/starwind/badge";
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -32,7 +34,7 @@ const { Content } = await render(project);
             </div>
             {project.data.tags && (
               <div class="flex flex-wrap gap-1.5">
-                {project.data.tags.map((tag) => <span class="text-[11px] font-medium text-ink-muted bg-canvas-soft px-2.5 py-1 rounded-full">{tag}</span>)}
+                {project.data.tags.map((tag) => <Badge variant="secondary" size="sm">{tag}</Badge>)}
               </div>
             )}
           </header>
@@ -41,10 +43,10 @@ const { Content } = await render(project);
           </div>
           <div class="flex gap-3 mt-10 pt-6 border-t border-divider">
             {project.data.liveUrl && (
-              <a href={project.data.liveUrl} class="inline-flex items-center justify-center text-sm font-medium px-6 py-3 rounded-full no-underline bg-primary text-white hover:bg-primary-hover transition-all active:scale-[0.97]" target="_blank" rel="noopener noreferrer">Live Site &nearr;</a>
+              <Button href={project.data.liveUrl} variant="primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</Button>
             )}
             {project.data.repoUrl && (
-              <a href={project.data.repoUrl} class="inline-flex items-center justify-center text-sm font-medium px-6 py-3 rounded-full no-underline bg-white text-ink border border-hairline hover:border-ink transition-all active:scale-[0.97]" target="_blank" rel="noopener noreferrer">Source Code &nearr;</a>
+              <Button href={project.data.repoUrl} variant="outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</Button>
             )}
           </div>
         </div>

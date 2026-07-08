@@ -3,7 +3,7 @@ import mdx from '@astrojs/mdx';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://hazurafif.github.io',
+	site: 'https://hazurafif.github.io',
   integrations: [mdx()],
   vite: {
     plugins: [tailwindcss()],

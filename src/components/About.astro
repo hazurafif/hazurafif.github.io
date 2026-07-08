@@ -1,5 +1,5 @@
 ---
-
+import { Card, CardContent, CardHeader } from "@/components/starwind/card";
 ---
 
 <section id="about" class="scroll-mt-20 py-20 md:py-28">
@@ -23,16 +23,24 @@
         </p>
       </div>
       <div class="flex flex-col gap-4">
-        <div class="bg-white rounded-xl border border-hairline/50 p-5">
-          <p class="text-[11px] font-semibold tracking-widest uppercase text-ink-muted-light mb-2">Education</p>
-          <p class="font-semibold text-[15px] text-ink mb-0.5 -tracking-[0.02em]">B.Eng Computer Engineering</p>
-          <p class="text-[13px] text-ink-muted">Universitas Indonesia, 2018</p>
-        </div>
-        <div class="bg-white rounded-xl border border-hairline/50 p-5">
-          <p class="text-[11px] font-semibold tracking-widest uppercase text-ink-muted-light mb-2">Focus</p>
-          <p class="font-semibold text-[15px] text-ink mb-0.5 -tracking-[0.02em]">AI Agents &amp; Infrastructure</p>
-          <p class="text-[13px] text-ink-muted">Backend systems + AI integration</p>
-        </div>
+        <Card size="sm">
+          <CardHeader class="pb-0">
+            <p class="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-1">Education</p>
+          </CardHeader>
+          <CardContent>
+            <p class="font-semibold text-[15px] text-ink mb-0.5 -tracking-[0.02em]">B.Eng Computer Engineering</p>
+            <p class="text-[13px] text-ink-muted">Universitas Indonesia, 2018</p>
+          </CardContent>
+        </Card>
+        <Card size="sm">
+          <CardHeader class="pb-0">
+            <p class="text-[11px] font-semibold tracking-widest uppercase text-muted-foreground mb-1">Focus</p>
+          </CardHeader>
+          <CardContent>
+            <p class="font-semibold text-[15px] text-ink mb-0.5 -tracking-[0.02em]">AI Agents &amp; Infrastructure</p>
+            <p class="text-[13px] text-ink-muted">Backend systems + AI integration</p>
+          </CardContent>
+        </Card>
       </div>
     </div>
   </div>

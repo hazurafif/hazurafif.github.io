@@ -47,6 +47,26 @@ Use plain `<a>` tags with CSS classes for pill buttons:
 Projects live in `src/content/projects/*.mdx` with Zod schema in `src/content.config.ts`.
 Fields: title, description, pubDate, icon, tags, liveUrl, repoUrl.
 
+## Starwind UI
+Component library from https://starwind.dev installed via CLI.
+- **Components installed:** Button, Badge, Card
+- **Imports:** `@/components/starwind/{component}`
+- **CSS:** `src/styles/starwind.css` (primary entry, imports Tailwind + animations)
+- **Config:** `starwind.config.json`
+
+### Adding new Starwind components
+```bash
+npx starwind@latest add component-name
+```
+
+### Design tokens mapped to Starwind
+| Token | Value | Used by |
+|---|---|---|
+| `--primary` | `#0066cc` | Button `primary`, Badge `primary` |
+| `--secondary` | `#f5f5f7` | Badge `secondary` |
+| `--border` | `#d2d2d7` | Card borders, Button `outline` |
+| `--radius` | `0.75rem` | Card rounded corners |
+
 ## Common Commands
 ```bash
 npm run dev      # local dev on localhost:4321
