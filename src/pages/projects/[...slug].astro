@@ -34,7 +34,7 @@ const { Content } = await render(project);
             </div>
             {project.data.tags && (
               <div class="flex flex-wrap gap-1.5">
-                {project.data.tags.map((tag) => <Badge variant="secondary" size="sm">{tag}</Badge>)}
+                {project.data.tags.map((tag) => <Badge variant="secondary" size="sm" class="text-ink-muted">{tag}</Badge>)}
               </div>
             )}
           </header>
@@ -43,10 +43,10 @@ const { Content } = await render(project);
           </div>
           <div class="flex gap-3 mt-10 pt-6 border-t border-divider">
             {project.data.liveUrl && (
-              <Button href={project.data.liveUrl} variant="primary" target="_blank" rel="noopener noreferrer">Live Site &nearr;</Button>
+              <Button href={project.data.liveUrl} variant="primary" class="rounded-full" target="_blank" rel="noopener noreferrer">Live Site &nearr;</Button>
             )}
             {project.data.repoUrl && (
-              <Button href={project.data.repoUrl} variant="outline" target="_blank" rel="noopener noreferrer">Source Code &nearr;</Button>
+              <Button href={project.data.repoUrl} variant="outline" class="rounded-full" target="_blank" rel="noopener noreferrer">Source Code &nearr;</Button>
             )}
           </div>
         </div>
