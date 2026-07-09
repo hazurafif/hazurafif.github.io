@@ -19,7 +19,7 @@ export default function NotFound() {
         >
           <p className="text-[clamp(4rem,10vw,6rem)] font-bold leading-none text-primary mb-4">404</p>
           <h1 className="text-[clamp(1.5rem,3vw,2rem)] leading-[1.08] -tracking-[0.03em] mb-3">Page not found</h1>
-          <p className="text-ink-muted mb-8">The page you're looking for doesn't exist or has been moved.</p>
+          <p className="text-muted-foreground mb-8">The page you're looking for doesn't exist or has been moved.</p>
           <Link to="/">
             <Button variant="primary" className="rounded-full">Go Home &rarr;</Button>
           </Link>

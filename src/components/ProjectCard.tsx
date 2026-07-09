@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from './ui/card';
 import { Badge } from './ui/badge';
+import { Button } from './ui/button';
 import type { Project } from '@/data/projects';
 
 export default function ProjectCard({ project, index }: { project: Project; index: number }) {
@@ -28,9 +29,11 @@ export default function ProjectCard({ project, index }: { project: Project; inde
               ))}
             </div>
             <div className="flex gap-4 pt-4 border-t border-border">
-              <Link to={`/projects/${project.id}`} className="text-sm font-medium text-primary no-underline hover:opacity-70 transition-opacity">
-                View project &rarr;
-              </Link>
+              <Button variant="link" asChild className="px-0 h-auto text-sm font-medium">
+                <Link to={`/projects/${project.id}`}>
+                  View project &rarr;
+                </Link>
+              </Button>
             </div>
           </div>
         </CardContent>

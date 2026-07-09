@@ -1,6 +1,7 @@
 import { useHead } from '@unhead/react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 export default function About() {
   useHead({
@@ -19,9 +20,9 @@ export default function About() {
           transition={{ duration: 0.5 }}
           className="mb-8"
         >
-          <Link to="/" className="inline-block text-sm text-ink-muted no-underline mb-8 hover:text-ink transition-colors">
-            &larr; Back to home
-          </Link>
+          <Button variant="link" asChild className="px-0 h-auto text-sm text-muted-foreground hover:text-foreground mb-8">
+            <Link to="/">&larr; Back to home</Link>
+          </Button>
           <p className="section-label">About</p>
           <h1 className="text-[clamp(2rem,5vw,3.25rem)] leading-[1.08] -tracking-[0.03em]">A bit about me.</h1>
         </motion.div>
@@ -29,12 +30,12 @@ export default function About() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="max-w-[680px] space-y-5 text-ink-muted leading-relaxed"
+          className="max-w-[680px] space-y-5 text-muted-foreground leading-relaxed"
         >
           <p>
             I'm a Computer Engineer and AI Application Engineer based in Indonesia.
-            I graduated with a degree in <strong className="font-semibold text-ink">Computer Engineering</strong> from the
-            <strong className="font-semibold text-ink"> University of Indonesia</strong> (Class of 2018), where I built a
+            I graduated with a degree in <strong className="font-semibold text-foreground">Computer Engineering</strong> from the
+            <strong className="font-semibold text-foreground"> University of Indonesia</strong> (Class of 2018), where I built a
             strong foundation in both hardware-software integration and software engineering principles.
           </p>
           <p>

@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from './ui/button';
 import {
   NavigationMenu,
@@ -10,6 +9,10 @@ import {
   NavigationMenuList,
   navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import {
+  SheetOverlay,
+  SheetContent,
+} from '@/components/ui/sheet';
 
 const links = [
   { href: '/#about', label: 'About' },
@@ -54,29 +57,23 @@ export default function Header() {
         </Button>
       </div>
 
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 top-12 bg-white/95 backdrop-blur-2xl z-40 flex flex-col items-center justify-center gap-8 md:hidden"
-          >
+      {open && (
+        <>
+          <SheetOverlay className="md:hidden" onClick={() => setOpen(false)} />
+          <SheetContent className="md:hidden inset-0 top-12 max-w-none border-l-0 bg-white/95 backdrop-blur-2xl p-0 flex flex-col items-center justify-center gap-8">
             {links.map((link) => (
-              <motion.a
+              <a
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
                 className="text-xl text-foreground no-underline"
               >
                 {link.label}
-              </motion.a>
+              </a>
             ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </SheetContent>
+        </>
+      )}
     </header>
   );
 }

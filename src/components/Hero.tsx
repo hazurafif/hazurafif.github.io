@@ -35,16 +35,12 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.3 }}
           className="flex gap-3 flex-wrap"
         >
-          <a href="/#projects">
-            <Button className="rounded-full">
-              See my work
-            </Button>
-          </a>
-          <a href="/#contact">
-            <Button variant="outline" className="rounded-full">
-              Get in touch
-            </Button>
-          </a>
+          <Button asChild className="rounded-full">
+            <a href="/#projects">See my work</a>
+          </Button>
+          <Button variant="outline" asChild className="rounded-full">
+            <a href="/#contact">Get in touch</a>
+          </Button>
         </motion.div>
       </div>
     </section>

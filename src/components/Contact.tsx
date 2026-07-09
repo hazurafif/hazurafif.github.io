@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Card, CardContent } from './ui/card';
+import { Button } from './ui/button';
 import { Mail, ArrowRight, Globe, ExternalLink } from 'lucide-react';
 
 const contactInfo = [
@@ -34,18 +35,14 @@ export default function Contact() {
               {contactInfo.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-4 px-6 py-4 no-underline hover:bg-muted/50 transition-colors group"
-                  >
-                    <Icon className="size-4 text-primary shrink-0" />
-                    <span className="text-sm font-semibold text-primary min-w-[4.5rem]">{item.label}</span>
-                    <span className="flex-1 text-sm text-muted-foreground">{item.text}</span>
-                    <ArrowRight className="size-4 text-muted-foreground/40 transition-transform group-hover:translate-x-1" />
-                  </a>
+                  <Button key={item.label} variant="ghost" asChild className="w-full justify-start gap-4 px-6 py-4 h-auto no-underline rounded-none hover:bg-muted/50 group">
+                    <a href={item.href} target="_blank" rel="noopener noreferrer">
+                      <Icon className="size-4 text-primary shrink-0" />
+                      <span className="text-sm font-semibold text-primary min-w-[4.5rem]">{item.label}</span>
+                      <span className="flex-1 text-sm text-muted-foreground">{item.text}</span>
+                      <ArrowRight className="size-4 text-muted-foreground/40 transition-transform group-hover:translate-x-1" />
+                    </a>
+                  </Button>
                 );
               })}
             </CardContent>

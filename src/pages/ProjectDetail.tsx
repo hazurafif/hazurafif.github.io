@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '@/data/projects';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -33,9 +34,9 @@ export default function ProjectDetail() {
   return (
     <article className="py-24 md:py-32">
       <div className="max-w-[1060px] mx-auto px-6 md:px-8">
-        <Link to="/#projects" className="inline-block text-sm text-ink-muted no-underline mb-8 hover:text-ink transition-colors">
-          &larr; Back to projects
-        </Link>
+        <Button variant="link" asChild className="px-0 h-auto text-sm text-muted-foreground hover:text-foreground mb-8">
+          <Link to="/#projects">&larr; Back to projects</Link>
+        </Button>
         <div className="max-w-[700px]">
           <motion.header
             initial={{ opacity: 0, y: 30 }}
@@ -45,14 +46,14 @@ export default function ProjectDetail() {
           >
             <p className="text-[1.5rem] mb-4 leading-none">{icon}</p>
             <h1 className="text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.08] -tracking-[0.03em] mb-4">{title}</h1>
-            <div className="text-[13px] text-ink-muted mb-4">
+            <div className="text-[13px] text-muted-foreground mb-4">
               <time dateTime={pubDate}>
                 {new Date(pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long' })}
               </time>
             </div>
             <div className="flex flex-wrap gap-1.5">
               {tags.map((tag) => (
-                <Badge key={tag} variant="secondary" className="text-ink-muted text-xs font-medium">
+                <Badge key={tag} variant="secondary" className="text-muted-foreground text-xs font-medium">
                   {tag}
                 </Badge>
               ))}
@@ -63,12 +64,12 @@ export default function ProjectDetail() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-ink-muted text-sm leading-relaxed space-y-5"
+            className="text-muted-foreground text-sm leading-relaxed space-y-5"
           >
-            <h2 className="text-ink text-xl font-semibold mt-8 mb-4">Overview</h2>
+                <h2 className="text-foreground text-xl font-semibold mt-8 mb-4">Overview</h2>
             <p>{content.overview}</p>
 
-            <h2 className="text-ink text-xl font-semibold mt-8 mb-4">Key Features</h2>
+            <h2 className="text-foreground text-xl font-semibold mt-8 mb-4">Key Features</h2>
             <ul className="pl-6 space-y-2">
               {content.features.map((feature) => (
                 <li key={feature} className="list-disc">{feature}</li>
@@ -77,14 +78,14 @@ export default function ProjectDetail() {
 
             {content.architecture && (
               <>
-                <h2 className="text-ink text-xl font-semibold mt-8 mb-4">Architecture</h2>
+                <h2 className="text-foreground text-xl font-semibold mt-8 mb-4">Architecture</h2>
                 <p>{content.architecture}</p>
               </>
             )}
 
             {content.techStack && (
               <>
-                <h2 className="text-ink text-xl font-semibold mt-8 mb-4">Tech Stack</h2>
+                <h2 className="text-foreground text-xl font-semibold mt-8 mb-4">Tech Stack</h2>
                 <p>{content.techStack}</p>
               </>
             )}
