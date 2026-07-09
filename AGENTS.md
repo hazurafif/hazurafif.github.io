@@ -1,23 +1,28 @@
 # Portfolio — hazurafif.github.io
 
-Static site built with HTML, CSS, and JavaScript. Deployed to GitHub Pages.
+React + Vite + TypeScript app deployed to GitHub Pages.
 
 ## Stack
-- **Stack:** Pure HTML + CSS + JavaScript (no build step)
-- **CSS:** Hand-written CSS with Apple-inspired design tokens
-- **Fonts:** Inter (Google Fonts)
+- **Framework:** React 19 + TypeScript
+- **Build:** Vite 8
+- **UI:** shadcn/ui (Base Nova preset) + custom components
+- **CSS:** Tailwind CSS v4 with CSS variables
+- **Animation:** Framer Motion
+- **Routing:** React Router v7
+- **Icons:** Lucide React
 - **Deploy:** GitHub Actions → GitHub Pages
 
 ## Key Files
 
 | Path | Purpose |
 |---|---|
-| `index.html` | Home page (Hero, About, Experience, Projects, Skills, Contact) |
-| `about.html` | About page |
-| `404.html` | 404 error page |
-| `projects/` | Project detail pages (pawly, pos-service, rbac-chat) |
-| `css/style.css` | All site styles |
-| `js/main.js` | Hamburger menu toggle |
+| `src/main.tsx` | Entry point, router setup |
+| `src/components/Layout.tsx` | Shared layout (Header + Outlet + Footer) |
+| `src/pages/Home.tsx` | Home page (Hero, About, Experience, Projects, Skills, Contact) |
+| `src/pages/ProjectDetail.tsx` | Dynamic project detail (`/projects/:slug`) |
+| `src/data/projects.ts` | Project data + schema |
+| `src/styles/globals.css` | Tailwind + Apple-inspired design tokens |
+| `src/components/ui/` | shadcn/ui components (Button, Badge) |
 | `DESIGN.md` | Apple-inspired design system |
 | `.github/workflows/deploy.yml` | GitHub Actions deploy workflow |
 
@@ -28,12 +33,20 @@ Static site built with HTML, CSS, and JavaScript. Deployed to GitHub Pages.
 - Hairline: `#d2d2d7`, divider: `#e8e8ed`
 - Font: Inter, body 16px/1.6
 
+## Commands
+```bash
+npm run dev      # local dev on localhost:5173
+npm run build    # typecheck + build to dist/
+npm run preview  # preview built site
+npm run lint     # oxlint
+```
+
 ## Mobile
-- Nav collapses to hamburger at 768px
+- Nav collapses to hamburger at 768px (framer-motion animated)
 - Section padding: 80px mobile → 112px desktop
 
 ## Reminders
-- Use `python3 -m http.server 8000` for local testing
-- `gh auth login` for GitHub CLI auth
-- Contact info in `index.html` has placeholder values (email, LinkedIn, GitHub)
+- `npx shadcn@latest add <component>` to add new shadcn/ui components
+- Use `@` path alias for imports (e.g. `@/components/ui/button`)
+- Contact info in `src/data/projects.ts` has placeholder values (email, LinkedIn, GitHub)
 - AGENTS.md is at root — read this first for context

@@ -1,37 +1,32 @@
-# hazurafif.github.io
+# React + TypeScript + Vite
 
-Personal portfolio built with [Astro](https://astro.build) v7 and deployed to GitHub Pages.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Stack
+Currently, two official plugins are available:
 
-- **Framework:** Astro v7
-- **Language:** TypeScript
-- **Content:** MDX via content collections
-- **Typography:** Inter, JetBrains Mono
-- **Deployment:** GitHub Actions → GitHub Pages
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## Development
+## React Compiler
 
-```bash
-npm install
-npm run dev     # local dev server at localhost:4321
-npm run build   # static output to dist/
-npm run preview # preview the built site
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
 
-## Project Structure
-
-```
-src/
-├── content/
-│   ├── config.ts         # Content collection schema (Zod)
-│   └── projects/         # Project MDX files
-├── components/           # Reusable UI components
-├── layouts/              # Base HTML layout
-├── pages/                # Routes (index, about, projects/[slug], 404)
-└── styles/               # Global CSS with design tokens
-```
-
-## Deployment
-
-Push to `main` — the GitHub Actions workflow in `.github/workflows/deploy.yml` handles building and deploying to GitHub Pages automatically.
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
