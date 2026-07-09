@@ -18,8 +18,8 @@ export function Navbar() {
   const pathname = usePathname()
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
+    <nav className="fixed top-4 z-50 w-[calc(100%-2rem)] max-w-5xl -translate-x-1/2 left-1/2 glass rounded-xl">
+      <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-4">
         <Link
           href="/"
           className="font-heading text-xs tracking-wider text-accent-glow hover:text-white transition-colors"
@@ -54,7 +54,7 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="glass border-t border-glass-border md:hidden">
+        <div className="glass border-t border-glass-border rounded-b-xl md:hidden">
           <div className="flex flex-col gap-2 px-4 py-4">
             {navLinks.map((link) => (
               <Link
