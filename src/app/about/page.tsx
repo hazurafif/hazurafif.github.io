@@ -1,4 +1,5 @@
 import { Timeline } from '@/components/layout/timeline'
+import { SectionReveal } from '@/components/layout/section-reveal'
 import { PixelDivider } from '@/components/pixel/pixel-divider'
 import { Badge } from '@/components/ui/badge'
 import { experiences } from '@/data/experience'
@@ -7,6 +8,7 @@ import { skillCategories } from '@/data/skills'
 export default function About() {
   return (
     <div className="space-y-16">
+      <SectionReveal>
       <section className="space-y-4">
         <h1 className="font-heading text-lg tracking-wider text-text-primary">
           ABOUT
@@ -25,18 +27,22 @@ export default function About() {
           <p>Focus: AI Agents & Infrastructure — Backend systems + AI integration</p>
         </div>
       </section>
+      </SectionReveal>
 
       <PixelDivider />
 
+      <SectionReveal delay={0.1}>
       <section className="space-y-6">
         <h2 className="font-heading text-sm tracking-wider text-text-primary">
           EXPERIENCE
         </h2>
         <Timeline experiences={experiences} />
       </section>
+      </SectionReveal>
 
       <PixelDivider />
 
+      <SectionReveal delay={0.2}>
       <section className="space-y-6">
         <h2 className="font-heading text-sm tracking-wider text-text-primary">
           SKILLS
@@ -56,6 +62,7 @@ export default function About() {
           ))}
         </div>
       </section>
+      </SectionReveal>
     </div>
   )
 }

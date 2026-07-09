@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { PixelBorder } from '@/components/pixel/pixel-border'
 import { PixelDivider } from '@/components/pixel/pixel-divider'
+import { SectionReveal } from '@/components/layout/section-reveal'
 import { Github, Linkedin, Mail } from 'lucide-react'
 
 const contactLinks = [
@@ -27,6 +28,7 @@ const contactLinks = [
 export default function Contact() {
   return (
     <div className="space-y-12">
+      <SectionReveal>
       <h1 className="font-heading text-lg tracking-wider text-text-primary">
         CONTACT
       </h1>
@@ -35,9 +37,11 @@ export default function Contact() {
         Interested in collaborating or just want to say hi? Feel free to reach
         out through any of the channels below.
       </p>
+      </SectionReveal>
 
       <PixelDivider />
 
+      <SectionReveal delay={0.1}>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {contactLinks.map((link) => {
           const Icon = link.icon
@@ -60,6 +64,7 @@ export default function Contact() {
           )
         })}
       </div>
+      </SectionReveal>
     </div>
   )
 }
