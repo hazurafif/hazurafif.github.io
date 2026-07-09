@@ -54,24 +54,22 @@ export function Navbar() {
       </div>
 
       {isOpen && (
-        <div className="glass border-t border-glass-border rounded-b-xl md:hidden">
-          <div className="flex flex-col gap-2 px-4 py-4">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className={cn(
-                  'py-2 font-body text-sm transition-colors hover:text-accent-glow',
-                  pathname === link.href
-                    ? 'text-accent-glow'
-                    : 'text-text-secondary'
-                )}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+        <div className="fixed inset-0 z-40 flex flex-col items-center justify-center gap-6 bg-bg-primary/95 backdrop-blur-xl md:hidden">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                'font-heading text-sm tracking-wider transition-colors hover:text-accent-glow',
+                pathname === link.href
+                  ? 'text-accent-glow'
+                  : 'text-text-primary'
+              )}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
       )}
     </nav>
