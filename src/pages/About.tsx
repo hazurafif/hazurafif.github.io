@@ -1,7 +1,15 @@
+import { useHead } from '@unhead/react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
 export default function About() {
+  useHead({
+    title: 'About — Hanif Zufar Rafif',
+    meta: [
+      { name: 'description', content: 'About Hanif Zufar Rafif — Computer Engineer & AI Application Engineer' },
+    ],
+  });
+
   return (
     <section className="py-24 md:py-32 scroll-mt-20">
       <div className="max-w-[1060px] mx-auto px-6 md:px-8">

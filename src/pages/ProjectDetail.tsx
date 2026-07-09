@@ -1,3 +1,4 @@
+import { useHead } from '@unhead/react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { projects } from '@/data/projects';
@@ -6,6 +7,15 @@ import { Badge } from '@/components/ui/badge';
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find((p) => p.id === slug);
+
+  useHead({
+    title: project
+      ? `${project.title} — Hanif Zufar Rafif`
+      : 'Project not found — Hanif Zufar Rafif',
+    meta: project
+      ? [{ name: 'description', content: project.description }]
+      : [],
+  });
 
   if (!project) {
     return (

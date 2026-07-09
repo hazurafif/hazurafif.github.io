@@ -1,8 +1,13 @@
+import { useHead } from '@unhead/react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 
 export default function NotFound() {
+  useHead({
+    title: '404 — Page not found',
+  });
+
   return (
     <section className="min-h-[80vh] flex items-center py-24">
       <div className="max-w-[1060px] mx-auto px-6 md:px-8 flex justify-center">

@@ -1,24 +1,20 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import Layout from './components/Layout';
-import Home from './pages/Home';
-import About from './pages/About';
-import NotFound from './pages/NotFound';
-import ProjectDetail from './pages/ProjectDetail';
-import './styles/globals.css';
+import { StrictMode } from 'react'
+import { hydrateRoot } from 'react-dom/client'
+import { createHead, UnheadProvider } from '@unhead/react/client'
+import { createBrowserRouter, RouterProvider } from 'react-router'
+import { routes } from './routes'
+import './styles/globals.css'
 
-createRoot(document.getElementById('root')!).render(
+const head = createHead()
+const router = createBrowserRouter(routes, {
+  hydrationData: (window as any).__staticRouterHydrationData,
+})
+
+hydrateRoot(
+  document.getElementById('root')!,
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="projects/:slug" element={<ProjectDetail />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <UnheadProvider head={head}>
+      <RouterProvider router={router} />
+    </UnheadProvider>
   </StrictMode>,
-);
+)

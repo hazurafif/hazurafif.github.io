@@ -1,3 +1,4 @@
+import { useHead } from '@unhead/react';
 import Hero from '@/components/Hero';
 import About from '@/components/About';
 import Experience from '@/components/Experience';
@@ -7,6 +8,15 @@ import ProjectCard from '@/components/ProjectCard';
 import { projects } from '@/data/projects';
 
 export default function Home() {
+  useHead({
+    title: 'Hanif Zufar Rafif',
+    meta: [
+      { name: 'description', content: 'Computer Engineer & AI Application Engineer. I build intelligent automation, scalable AI agents, and robust full-stack applications.' },
+      { property: 'og:title', content: 'Hanif Zufar Rafif' },
+      { property: 'og:description', content: 'Computer Engineer & AI Application Engineer. I build intelligent automation, scalable AI agents, and robust full-stack applications.' },
+    ],
+  });
+
   return (
     <>
       <Hero />
