@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter, Press_Start_2P } from 'next/font/google'
+import { Navbar } from '@/components/layout/navbar'
+import { Footer } from '@/components/layout/footer'
 import './globals.css'
 
 const inter = Inter({
@@ -26,7 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${pressStart2P.variable}`}>
       <body className="bg-bg-primary text-text-primary font-body antialiased">
-        {children}
+        <Navbar />
+        <main className="mx-auto min-h-screen max-w-5xl px-4 pt-24 pb-12">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   )
