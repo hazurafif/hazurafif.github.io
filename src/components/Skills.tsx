@@ -1,5 +1,4 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Badge } from './ui/badge';
 
@@ -23,7 +22,9 @@ export default function Skills() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <p className="section-label">Skills</p>
+          <p className="text-[13px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-3">
+            Skills
+          </p>
           <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.08] -tracking-[0.03em]">Technologies I work with.</h2>
         </motion.div>
         <motion.div
@@ -39,7 +40,7 @@ export default function Skills() {
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.3, delay: 0.1 + i * 0.05 }}
             >
-              <Badge variant="outline" className="text-ink-muted font-medium">
+              <Badge variant="outline" className="text-muted-foreground font-medium">
                 {skill}
               </Badge>
             </motion.span>

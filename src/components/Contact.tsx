@@ -1,10 +1,12 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Card, CardContent } from './ui/card';
+import { Mail, ArrowRight, Globe, ExternalLink } from 'lucide-react';
 
 const contactInfo = [
-  { label: 'Email', href: 'mailto:your.email@example.com', text: 'your.email@example.com' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername', text: 'linkedin.com/in/yourusername' },
-  { label: 'GitHub', href: 'https://github.com/yourusername', text: 'github.com/yourusername' },
+  { label: 'Email', href: 'mailto:your.email@example.com', text: 'your.email@example.com', icon: Mail },
+  { label: 'LinkedIn', href: 'https://linkedin.com/in/yourusername', text: 'linkedin.com/in/yourusername', icon: ExternalLink },
+  { label: 'GitHub', href: 'https://github.com/yourusername', text: 'github.com/yourusername', icon: Globe },
 ];
 
 export default function Contact() {
@@ -12,7 +14,7 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="contact" className="scroll-mt-20 py-20 md:py-28 bg-canvas-soft">
+    <section id="contact" className="scroll-mt-20 py-20 md:py-28 bg-muted/30">
       <div className="max-w-[1060px] mx-auto px-6 md:px-8">
         <motion.div
           ref={ref}
@@ -21,28 +23,33 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="max-w-[640px]"
         >
-          <p className="section-label">Contact</p>
+          <p className="text-[13px] font-semibold tracking-widest uppercase text-muted-foreground/60 mb-3">
+            Contact
+          </p>
           <h2 className="text-[clamp(1.75rem,4vw,2.5rem)] leading-[1.08] -tracking-[0.03em] mb-10">
             Let's talk AI, backend architecture, or the future of automation.
           </h2>
-          <div className="flex flex-col">
-            {contactInfo.map((item, i) => (
-              <motion.a
-                key={item.label}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, x: -20 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.4, delay: 0.1 + i * 0.1 }}
-                className="flex items-center gap-4 py-4 border-b border-divider first:border-t no-underline hover:opacity-60 transition-opacity group"
-              >
-                <span className="text-sm font-semibold text-primary min-w-[4.5rem]">{item.label}</span>
-                <span className="flex-1 text-sm text-ink-muted">{item.text}</span>
-                <span className="text-ink-muted-light text-sm transition-transform group-hover:translate-x-1">&rarr;</span>
-              </motion.a>
-            ))}
-          </div>
+          <Card>
+            <CardContent className="p-0">
+              {contactInfo.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 px-6 py-4 no-underline hover:bg-muted/50 transition-colors group"
+                  >
+                    <Icon className="size-4 text-primary shrink-0" />
+                    <span className="text-sm font-semibold text-primary min-w-[4.5rem]">{item.label}</span>
+                    <span className="flex-1 text-sm text-muted-foreground">{item.text}</span>
+                    <ArrowRight className="size-4 text-muted-foreground/40 transition-transform group-hover:translate-x-1" />
+                  </a>
+                );
+              })}
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
     </section>
