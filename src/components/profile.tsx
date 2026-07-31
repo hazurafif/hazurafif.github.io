@@ -8,7 +8,7 @@ const NAME = 'hanif zufar rafif'
 const ROLE = 'AI Application Engineer'
 const BIO =
   'Building intelligent automation, AI agents, and robust full-stack applications — bridging backend systems with AI.'
-const STACK = ['go', 'python', 'typescript', 'ai agents', 'docker', 'linux', 'zabbix']
+const STACK = ['go', 'python']
 
 const SOCIALS = [
   { label: 'github', href: 'https://github.com/hazurafif', icon: Github },
