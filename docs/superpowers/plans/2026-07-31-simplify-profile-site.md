@@ -8,7 +8,7 @@
 
 **Tech Stack:** Next.js 15 (App Router), React 19, Tailwind CSS 4 (via `@theme` tokens), framer-motion 12, lucide-react icons, `JetBrains_Mono` from `next/font/google`.
 
-**Testing note:** This project has no test framework (no jest/vitest) and this is a static presentation page. Verification is `npm run lint` + `npm run build` + manual check in `npm run dev`. Do not add a test framework — YAGNI.
+**Testing note:** This project has no test framework (no jest/vitest) and this is a static presentation page. Verification is `npx tsc --noEmit` (typecheck) + `npm run build` + manual check in `npm run dev`. Note: `npm run lint` cannot be used — the repo has no ESLint config and `next lint` (deprecated in Next 15) hangs at an interactive setup prompt. `eslint` stays in devDependencies but no config is added (out of scope). Do not add a test framework — YAGNI.
 
 **Design spec:** `docs/superpowers/specs/2026-07-31-simplify-profile-site-design.md`
 
@@ -115,7 +115,7 @@ Removes the `Navbar`, `Footer`, and the `Press_Start_2P`/`Inter` fonts. The main
 
 - [ ] **Step 2: Verify it compiles**
 
-Run: `npm run lint`
+Run: `npx tsc --noEmit`
 Expected: PASS (no errors). The old `page.tsx` still imports `Hero`/`PixelDivider`/etc. at this point, but those files still exist until Task 5, so everything compiles — those imports disappear in Tasks 4–5.
 
 - [ ] **Step 3: Commit**
@@ -239,7 +239,7 @@ Notes:
 
 - [ ] **Step 2: Verify it compiles**
 
-Run: `npm run lint`
+Run: `npx tsc --noEmit`
 Expected: PASS.
 
 - [ ] **Step 3: Commit**
@@ -349,7 +349,7 @@ git commit -m "chore: remove unused dependencies"
 
 - [ ] **Step 1: Lint**
 
-Run: `npm run lint`
+Run: `npx tsc --noEmit`
 Expected: PASS.
 
 - [ ] **Step 2: Production build**
