@@ -27,7 +27,10 @@ export function Profile() {
   const [typed, setTyped] = useState(reducedMotion ? NAME : '')
 
   useEffect(() => {
-    if (reducedMotion) return
+    if (reducedMotion) {
+      setTyped(NAME)
+      return
+    }
     let i = 0
     const id = setInterval(() => {
       i += 1
