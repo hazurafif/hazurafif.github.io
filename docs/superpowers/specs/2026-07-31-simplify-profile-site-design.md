@@ -39,7 +39,7 @@ email).
 - **Socials:**
   - GitHub: https://github.com/hazurafif
   - LinkedIn: https://linkedin.com/in/hazurafif
-  - Email: mailto:hanifrafif22@gmail.com (display: hanifrafif22@gmail.com)
+  - Email: mailto:hanifrafif22@gmail.com (display label: "email", per user choice)
 
 ## Page Structure (single page)
 
